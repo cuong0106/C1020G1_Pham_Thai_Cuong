@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyển độ C sang độ F</title>
+</head>
+<body>
+<span> nhập vào độ C: </span> <input id="doc"><br>
+<button onclick="chuyendoido();"> chuyển độ C sang độ F </button>
+<h4> <span id="hienthidoc";></span><span> độ C = </span>
+<span id="hienthidof";></span><span> độ F</span>
+</h4>
+<script>
+    function chuyendoido() {
+        document.getElementById("hienthidoc").innerHTML = parseFloat(document.getElementById("doc").value);
+        document.getElementById("hienthidof").innerHTML = parseFloat(document.getElementById("doc").value)*9/5+32;
+    }
+</script>
+</body>
+</html>

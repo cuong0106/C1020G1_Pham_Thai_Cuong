@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Amount :<input type = "Text" name ="Amount"><br>
+From Currency :<input type = "text" id ="FromCurreny">  <br>
+To Currency    :<input type = "text"  id ="ToCurrency"><br>
+<input type = "button"  value="convert" onclick="Amount();">
+<select id="from";>
+    <option value="VNĐ">VNĐ</option>
+    <option value="USD">USD</option>
+</select>
+<script>
+    function Amount()
+    {
+        document.getElementById("FromCurreny").value =document.getElementById("from").value;
+        if(document.getElementById("from").value=="USD")
+            document.getElementById("ToCurrency").value ="VNĐ";
+        else
+            document.getElementById("ToCurrency").value ="USD";
+    }
+</script>
+</body>
+</html>
