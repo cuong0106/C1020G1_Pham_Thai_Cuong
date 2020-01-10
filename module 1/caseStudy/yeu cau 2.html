@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Study</title>
+</head>
+<body>
+<h1> yêu cầu 2</h1>
+
+<script>
+
+    let fullName,ip, yearOfBirth, currentYear,
+        totalDiscount, idCard, birthDay, email, address, typeCustomer, discount,
+        number, rentDays, serviceRoom, rentRoom, menu;
+    ip="";
+    fullName="";
+    idCard="";
+
+
+    while (1) {
+        menu = prompt(
+            "1. show information Customer\n" +
+            "2. add information customer\n" +
+            "3. Edit information customer\n" +
+            "4. show the amount to be paid after discount\n"+
+            "Chọn menu:"
+        );
+        if (menu === "1") {
+            show();
+        }else
+        if (menu === "2") {
+            add();
+        }else
+        if (menu === "3") {
+            edit();
+        }else
+        if (menu === "4") {
+            amount();
+        }else menu="";
+    }
+
+
+
+
+
+
+    function show() {
+        alert("1. Tên: " +fullName+ "\n2. CMND: "+idCard+ "\n3.Ngày Tháng Năm Sinh: " +birthDay+ "\n4.Email: "+email+
+            "\n5.Địa Chỉ: "+address+"\n6.Loại Customer: "+discount+"\n7.Giảm Giá: "+discount+
+            "\n8. Số Lượng Đi Kèm: "+number+"\n9. Số Ngày Thuê: "+rentDays+"\n10. Loại Dịch Vụ: "+serviceRoom+
+            "\n11. Loại Phòng Thuê: "+rentRoom);
+    }
+    function add() {
+        while (fullName==="")
+        {
+            fullName=prompt("điền vào Tên:");
+        }
+        while (idCard==="")
+        {
+            idCard=prompt("điền vào CMND:");
+        }
+        birthDay=prompt("điền vào Ngày Tháng Năm Sinh:");
+        email=prompt("điền vào Email:");
+        address=prompt("điền vào Địa Chỉ:");
+        typeCustomer=prompt("điền vào Loại Customer:");
+        discount=prompt("điền vào Giảm Giá:");
+        number=prompt("điền vào Số Lượng Đi Kèm:");
+        rentDays=prompt("điền vào Số Ngày thuê:");
+        serviceRoom=prompt("điền vào Loại Dịch Vụ:");
+        rentRoom=prompt("điền vào Loại Phòng Thuê:");
+
+    }
+    function edit() {
+        let ediwhile=1;
+        while(ediwhile) {
+            ip = prompt("1. Tên: " + fullName + "\n2. CMND: " + idCard + "\n3.Ngày Tháng Năm Sinh: " + birthDay +
+                "\n4.Email: " + email + "\n5.Địa Chỉ: " + address + "\n6.Loại Customer: " + discount + "\n7.Giảm Giá: " + discount +
+                "\n8. Số Lượng Đi Kèm: " + number + "\n9. Số Ngày Thuê: " + rentDays + "\n10. Loại Dịch Vụ: " + serviceRoom +
+                "\n11. Loại Phòng Thuê: " + rentRoom+"\n12. không cần thay đổi:");
+            switch (ip) {
+                case "1": {
+                    fullName = prompt("điền vào Tên:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                }
+                case "2":
+                    idCard = prompt("điền vào CMND:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "3":
+                    birthDay = prompt("điền vào Ngày Tháng Năm Sinh:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "4":
+                    email = prompt("điền vào Email:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "5":
+                    address = prompt("điền vào Địa Chỉ:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "6":
+                    typeCustomer = prompt("điền vào Loại Customer:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "7":
+                    discount = prompt("điền vào Giảm Giá:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "8":
+                    number = prompt("điền vào Số Lượng Đi Kèm:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "9":
+                    rentDays = prompt("điền vào Số Ngày thuê:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "10":
+                    serviceRoom = prompt("điền vào Loại Dịch Vụ:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "11":
+                    rentRoom = prompt("điền vào Loại Phòng Thuê:");
+                    ip = "";
+                    show();
+                    ediwhile=0;
+                    break;
+                case "12":
+                    ip = "";
+                    ediwhile=0;
+                    break;
+                default:
+                    ip = prompt("1. Tên: " + fullName + "\n2. CMND: " + idCard + "\n3.Ngày Tháng Năm Sinh: " + birthDay +
+                        "\n4.Email: " + email + "\n5.Địa Chỉ: " + address + "\n6.Loại Customer: " + discount + "\n7.Giảm Giá: " + discount +
+                        "\n8. Số Lượng Đi Kèm: " + number + "\n9. Số Ngày Thuê: " + rentDays + "\n10. Loại Dịch Vụ: " + serviceRoom +
+                        "\n11. Loại Phòng Thuê: " + rentRoom);
+            }
+        }
+    }
+    function amount() {
+        let discountAddress,discountTypeCustomer,ageCustomer,discountYearOld,moneyRoom,money;
+        let discountRentDays;
+
+        switch (address) {
+            case "Đà Nẵng": discountAddress=20;break;
+            case "Huế": discountAddress=10;break;
+            case "Quảng Nam": discountAddress=5;break;
+            default:
+        }
+        //***************************************************************//giảm giá theo thời gian thuê phòng
+        if(rentDays<2)
+            discountRentDays=0;
+        else if(rentDays<5)
+            discountRentDays=10;
+        else if(rentDays<7)
+            discountRentDays=20;
+        else if(rentDays>7)
+            discountRentDays=30;
+        //*****************************************************************//giảm giá theo typeCustomer
+        switch (typeCustomer) {
+            case "Diamond": discountTypeCustomer=15;break;
+            case "Platium": discountTypeCustomer=10;break;
+            case "Gold": discountTypeCustomer=5;break;
+            case "Silver": discountTypeCustomer=2;break;
+            case "Member": discountTypeCustomer=0;break;
+            default:
+        }
+        //****************************************************************//giảm theo tuổi
+        currentYear=new Date().getFullYear();
+        yearOfBirth=new Date(birthDay).getFullYear();
+
+        if(new Date().getMonth()>new Date(birthDay).getMonth())
+            ageCustomer=currentYear-yearOfBirth;
+        else if((new Date().getMonth()===new Date(birthDay).getMonth()) && new Date().getDate()>new Date(birthDay).getDate())
+            ageCustomer=currentYear-yearOfBirth;
+        else ageCustomer=(currentYear-yearOfBirth-1);
+
+        if(ageCustomer>=30&& address==="Đà Nẵng")
+            discountYearOld=2;
+        else if(ageCustomer>=20&& address==="Đà Nẵng")
+            discountYearOld=1;
+        else discountYearOld=0;
+        //****************************************************************//Tổng giảm giá
+        totalDiscount=discountAddress+discountRentDays+discountTypeCustomer+discountYearOld;
+        //****************************************************************
+        switch (serviceRoom) {
+            case "Villa": moneyRoom=500;break;
+            case "House": moneyRoom=300;break;
+            case "Room": moneyRoom=100; break;
+            default:
+        }
+        money=moneyRoom*rentDays*(1-discount/100)-totalDiscount;
+        ip=prompt( "số tiền "+money);
+    }
+</script>
+</body>
+</html>
