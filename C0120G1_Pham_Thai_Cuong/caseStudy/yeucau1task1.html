@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Study</title>
+</head>
+<body>
+<h1 id="hien"> xin chào các bạn</h1>
+
+
+
+
+
+<script>
+
+    var fullName="",ip="",discountRentDays,discountTypeCustomer,discountAddress,idCard="",birthDay,email,address,typeCustomer,discount,number,rentDays,serviceRoom,rentRoom,money,moneyRoom;
+
+
+    while (fullName=="")
+    {
+        fullName=prompt("điền vào Tên:");
+    }
+    while (idCard=="")
+    {
+        idCard=prompt("điền vào CMND:");
+    }
+    birthDay=prompt("điền vào Ngày Tháng Năm Sinh:");
+    email=prompt("điền vào Email:");
+    address=prompt("điền vào Địa Chỉ:");
+    typeCustomer=prompt("điền vào Loại Customer:");
+    discount=prompt("điền vào Giảm Giá:");
+    number=prompt("điền vào Số Lượng Đi Kèm:");
+    rentDays=prompt("điền vào Số Ngày thuê:");
+    serviceRoom=prompt("điền vào Loại Dịch Vụ:");
+    rentRoom=prompt("điền vào Loại Phòng Thuê:");
+
+    switch (address) {
+        case "Đà Nẵng": discountAddress=20;break;
+        case "Huế": discountAddress=10;break;
+        case "Quảng Nam": discountAddress=5;break;
+        default:;
+    }
+    //***************************************************************//giảm giá theo thời gian thuê phòng
+    if(rentDays<2)
+        discountRentDays=0;
+    else if(rentDays<5)
+        discountRentDays=10;
+    else if(rentDays<7)
+        discountRentDays=20;
+    else if(rentDays>7)
+        discountRentDays=30;
+    //*****************************************************************
+    }
+    switch (typeCustomer) {
+        case "Diamond":
+    }
+
+    Mức giá theo loại Customer:
+        -	Nếu loại Customer là Diamond giảm giá 15$
+    -	Nếu loại Customer là Platium giảm giá 10$
+    -	Nếu loại Customer là Gold giảm giá 5$
+    -	Nếu loại Customer là Silver giảm giá 2$
+    -	Nếu loại Customer là Member thì không giảm giá
+
+
+    switch (serviceRoom) {
+        case "Villa": moneyRoom=500;break;
+        case "House": moneyRoom=300;break;
+        case "Room": moneyRoom=100; break;
+        default:;
+    }
+
+    money=moneyRoom*rentDays*(1-discount/100);
+
+
+     ip=prompt( "1. Tên: " +fullName+ "\n2. CMND: "+idCard+ "\n3.Ngày Tháng Năm Sinh: " +birthDay+ "\n4.Email: "+email+"\n5.Địa Chỉ: "+address+
+        "\n6.Loại Customer: "+discount+"\n7.Giảm Giá: "+discount+"\n8. Số Lượng Đi Kèm: "+number+"\n9. Số Ngày Thuê: "+rentDays+
+        "\n10. Loại Dịch Vụ: "+serviceRoom+"\n11. Loại Phòng Thuê: "+rentRoom+"\n số tiền "+money);
+     while(ip!="")
+     switch (ip) {
+         case "1": fullName=prompt("điền vào Tên:"); ip=""; break;
+         case "2": idCard=prompt("điền vào CMND:"); ip=""; break;
+         case "3": birthDay=prompt("điền vào Ngày Tháng Năm Sinh:"); ip=""; break;
+         case "4": email=prompt("điền vào Email:"); ip=""; break;
+         case "5": address=prompt("điền vào Địa Chỉ:"); ip=""; break;
+         case "6":  typeCustomer=prompt("điền vào Loại Customer:"); ip=""; break;
+         case "7":    discount=prompt("điền vào Giảm Giá:"); ip=""; break;
+         case "8":   number=prompt("điền vào Số Lượng Đi Kèm:"); ip=""; break;
+         case "9":    rentDays=prompt("điền vào Số Ngày thuê:"); ip=""; break;
+         case "10":   serviceRoom=prompt("điền vào Loại Dịch Vụ:"); ip=""; break;
+         case "11":    rentRoom=prompt("điền vào Loại Phòng Thuê:"); ip=""; break;
+         default:      ip=prompt( "1. Tên: " +fullName+ "\n2. CMND: "+idCard+ "\n3.Ngày Tháng Năm Sinh: " +birthDay+ "\n4.Email: "+email+"\n5.Địa Chỉ: "+address+
+             "\n6.Loại Customer: "+discount+"\n7.Giảm Giá: "+discount+"\n8. Số Lượng Đi Kèm: "+number+"\n9. Số Ngày Thuê: "+rentDays+
+             "\n10. Loại Dịch Vụ: "+serviceRoom+"\n11. Loại Phòng Thuê: "+rentRoom+"\n số tiền "+money);
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

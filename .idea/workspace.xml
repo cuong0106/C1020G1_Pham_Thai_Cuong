@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f35c49d3-bb80-40c2-8a23-4947d0990045" name="Default Changelist" comment="new">
-      <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/cau lenh switch-case.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/chi so co the.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/CauTrucDieuKien/cau lenh switch-case.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/CauTrucDieuKien/chi so co the.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/chu vi hinh tron.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/chuyen do c sang do f.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/chuyendoitienmk.html" afterDir="false" />
@@ -79,7 +79,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/chi so co the.html">
+        <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/CauTrucDieuKien/chi so co the.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
@@ -88,10 +88,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/cau lenh switch-case.html">
+        <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/CauTrucDieuKien/cau lenh switch-case.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="27" column="100" selection-start-line="27" selection-start-column="100" selection-end-line="27" selection-end-column="100" />
+            <state relative-caret-position="476">
+              <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -166,6 +166,12 @@
               <item name="module 1" type="b2602c69:ProjectViewProjectNode" />
               <item name="module 1" type="462c0819:PsiDirectoryNode" />
               <item name="NhapMonLapTrinh" type="462c0819:PsiDirectoryNode" />
+              <item name="CauTrucDieuKien" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="module 1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="module 1" type="462c0819:PsiDirectoryNode" />
+              <item name="NhapMonLapTrinh" type="462c0819:PsiDirectoryNode" />
               <item name="thuc_hanh" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -180,6 +186,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Codegym\module 1\NhapMonLapTrinh\CauTrucDieuKien" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -213,7 +224,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578538239132</updated>
-      <workItem from="1578538240398" duration="12195000" />
+      <workItem from="1578538240398" duration="12882000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1578538264633</created>
@@ -226,10 +237,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12195000" />
+    <option name="totallyTimeSpent" value="12882000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25" />
@@ -326,17 +338,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/chi so co the.html">
+    <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/CauTrucDieuKien/chi so co the.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/thuc_hanh/cau lenh switch-case.html">
+    <entry file="file://$PROJECT_DIR$/NhapMonLapTrinh/CauTrucDieuKien/cau lenh switch-case.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="100" selection-start-line="27" selection-start-column="100" selection-end-line="27" selection-end-column="100" />
+        <state relative-caret-position="476">
+          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
         </state>
       </provider>
     </entry>
