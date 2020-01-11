@@ -12,11 +12,12 @@
     let fullName,ip, yearOfBirth, currentYear,checkIdCard,
         totalDiscount, idCard, birthDay, email, address, typeCustomer, discount,
         number, rentDays, serviceRoom, rentRoom, menu;
+    let checkEmail;
+    let checkBirthDay;
+    let checkBirthDayTemporary="";
     ip="";
     fullName="";
     idCard="";
-
-
     while (1) {
         menu = prompt(
             "1. show information Customer\n" +
@@ -38,35 +39,29 @@
             amount();
         }else menu="";
     }
+    //*******************************************************//khi chọn menu 1
     function show() {
         alert("1. Tên: " +fullName+ "\n2. CMND: "+idCard+ "\n3.Ngày Tháng Năm Sinh: " +birthDay+ "\n4.Email: "+email+
             "\n5.Địa Chỉ: "+address+"\n6.Loại Customer: "+discount+"\n7.Giảm Giá: "+discount+
             "\n8. Số Lượng Đi Kèm: "+number+"\n9. Số Ngày Thuê: "+rentDays+"\n10. Loại Dịch Vụ: "+serviceRoom+
             "\n11. Loại Phòng Thuê: "+rentRoom);
     }
+    //*******************************************************//khi chọn menu 2
     function add() {
-        let checkEmail;
-        let checkBirthDay;
-        let checkBirthDayTemporary="";
-        //****************************************************//nhập vào và xữ lý tên
+        //**********************//nhập vào và xữ lý tên
         while (fullName==="") {
             fullName=prompt("điền vào Tên:");
         }
         fullName=xuLyChuoi(fullName);
 
-        //******************************************************//nhập vào và xử lý cmnd
+        //**********************//nhập vào và xử lý cmnd
         do {
             idCard=prompt("điền vào CMND:");
             if(idCard.length===9)
                 checkIdCard=kiemtraso(idCard);
-          //  for(let i=0;i<idCard.length;i++)
-              //  if(!Number.isInteger(parseInt(idCard[i]))) {
-               //     checkIdCard = false;
-              //      break;
-              //  }else checkIdCard=true;
         }
         while (!checkIdCard);
-        //******************************************************//nhập vào và xử lý ngày tháng năm sinh
+        //***************************//nhập vào và xử lý ngày tháng năm sinh
         do {
             checkBirthDayTemporary="";
             birthDay=prompt("điền vào Ngày Tháng Năm Sinh:"+checkBirthDayTemporary);
@@ -79,44 +74,49 @@
         }
         while (!checkBirthDay);
 
-        //******************************************************//nhập vào và xử lý email
+        //*****************************//nhập vào và xử lý email
         do {
             email=prompt("điền vào Email:");
             if(email.indexOf("@")>0 && email.indexOf(".")<email.length-1)
-            checkEmail=email.indexOf(".")-email.indexOf("@")-1;
+                checkEmail=email.indexOf(".")-email.indexOf("@")-1;
+            else checkEmail=-1;
         }
-        while(!checkEmail);
-        //******************************************************//nhập vào và xử lý địa chỉ
-        while (address==="") {
+        while(checkEmail<=0);
+        //***********************//nhập vào và xử lý địa chỉ
+        do {
             address = prompt("điền vào Địa Chỉ:");
         }
+        while (address==="");
         address=xuLyChuoi(address);
-        //******************************************************//nhập vào và xử lý loại Customer
-        while (typeCustomer==="") {
+        //*************************//nhập vào và xử lý loại Customer
+        do {
             typeCustomer = prompt("điền vào Loại Customer:");
         }
+        while (typeCustomer==="");
         typeCustomer=xuLyChuoi(typeCustomer);
-        //******************************************************//nhập vào và xử lý giảm giá
+        //*****************************//nhập vào và xử lý giảm giá
         do {
             discount=prompt("điền vào Giảm Giá:");
         }
         while(!kiemtraso(discount));
-        //******************************************************//nhập vào và xử lý số lượng đi kèm
+        //*****************************//nhập vào và xử lý số lượng đi kèm
         do {
             number=prompt("điền vào Số Lượng Đi Kèm:");
         }
         while(!kiemtraso(number));
-        //******************************************************//nhập vào và xử lý số ngày thuê
+        //****************************//nhập vào và xử lý số ngày thuê
         do {
             rentDays=prompt("điền vào Số Ngày thuê:");
         }
         while(!kiemtraso(rentDays));
-        //******************************************************//nhập vào và xử lý loại dịch vụ
+        //***************************//nhập vào và xử lý loại dịch vụ
         serviceRoom=prompt("điền vào Loại Dịch Vụ:");
-        //******************************************************//nhập vào và xử lý phòng thuê
+        //***************************//nhập vào và xử lý phòng thuê
         rentRoom=prompt("điền vào Loại Phòng Thuê:");
 
     }
+
+    //*******************************************************//khi chọn menu 3
     function edit() {
         let ediwhile=1;
         while(ediwhile) {
@@ -125,57 +125,98 @@
                 "\n8. Số Lượng Đi Kèm: " + number + "\n9. Số Ngày Thuê: " + rentDays + "\n10. Loại Dịch Vụ: " + serviceRoom +
                 "\n11. Loại Phòng Thuê: " + rentRoom+"\n12. không cần thay đổi:");
             switch (ip) {
-                case "1": {
-                    fullName = prompt("điền vào Tên:");
+                case "1":
+                    while (fullName==="") {
+                    fullName=prompt("điền vào Tên:");
+                    }
+                    fullName=xuLyChuoi(fullName);
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
-                }
+
                 case "2":
-                    idCard = prompt("điền vào CMND:");
+                    do {
+                        idCard=prompt("điền vào CMND:");
+                        if(idCard.length===9)
+                            checkIdCard=kiemtraso(idCard);
+                    }
+                    while (!checkIdCard);
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
                 case "3":
-                    birthDay = prompt("điền vào Ngày Tháng Năm Sinh:");
+                    do {
+                        checkBirthDayTemporary="";
+                        birthDay=prompt("điền vào Ngày Tháng Năm Sinh:"+checkBirthDayTemporary);
+                        if(birthDay.length===10 && birthDay[2]==="/" && birthDay[5]==="/") {
+                            for(let i=0; i<10;i++)
+                                if(i!==2 && i!==5)
+                                    checkBirthDayTemporary = checkBirthDayTemporary + birthDay[i];
+                            checkBirthDay=kiemtraso(checkBirthDayTemporary);
+                        }
+                    }
+                    while (!checkBirthDay);
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
                 case "4":
-                    email = prompt("điền vào Email:");
+                    do {
+                        email=prompt("điền vào Email:");
+                        if(email.indexOf("@")>0 && email.indexOf(".")<email.length-1)
+                            checkEmail=email.indexOf(".")-email.indexOf("@")-1;
+                        else checkEmail=-1;
+                    }
+                    while(checkEmail<=0);
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
                 case "5":
-                    address = prompt("điền vào Địa Chỉ:");
+                    do {
+                        address = prompt("điền vào Địa Chỉ:");
+                    }
+                    while (address==="");
+                    address=xuLyChuoi(address);
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
                 case "6":
-                    typeCustomer = prompt("điền vào Loại Customer:");
+                    do {
+                        typeCustomer = prompt("điền vào Loại Customer:");
+                    }
+                    while (typeCustomer==="");
+                    typeCustomer=xuLyChuoi(typeCustomer);
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
                 case "7":
-                    discount = prompt("điền vào Giảm Giá:");
+                    do {
+                        discount=prompt("điền vào Giảm Giá:");
+                    }
+                    while(!kiemtraso(discount));
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
                 case "8":
-                    number = prompt("điền vào Số Lượng Đi Kèm:");
+                    do {
+                        number=prompt("điền vào Số Lượng Đi Kèm:");
+                    }
+                    while(!kiemtraso(number));
                     ip = "";
                     show();
                     ediwhile=0;
                     break;
                 case "9":
-                    rentDays = prompt("điền vào Số Ngày thuê:");
+                    do {
+                        rentDays=prompt("điền vào Số Ngày thuê:");
+                    }
+                    while(!kiemtraso(rentDays));
                     ip = "";
                     show();
                     ediwhile=0;
