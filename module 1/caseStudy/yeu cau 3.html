@@ -9,7 +9,7 @@
 
 <script>
 
-    let fullName,ip, yearOfBirth, currentYear,
+    let fullName,ip, yearOfBirth, currentYear,checkIdCard,
         totalDiscount, idCard, birthDay, email, address, typeCustomer, discount,
         number, rentDays, serviceRoom, rentRoom, menu;
     ip="";
@@ -38,12 +38,6 @@
             amount();
         }else menu="";
     }
-
-
-
-
-
-
     function show() {
         alert("1. Tên: " +fullName+ "\n2. CMND: "+idCard+ "\n3.Ngày Tháng Năm Sinh: " +birthDay+ "\n4.Email: "+email+
             "\n5.Địa Chỉ: "+address+"\n6.Loại Customer: "+discount+"\n7.Giảm Giá: "+discount+
@@ -51,34 +45,75 @@
             "\n11. Loại Phòng Thuê: "+rentRoom);
     }
     function add() {
-        let checkIdCard;
         let checkEmail;
-        while (fullName==="")
-        {
+        let checkBirthDay;
+        let checkBirthDayTemporary="";
+        //****************************************************//nhập vào và xữ lý tên
+        while (fullName==="") {
             fullName=prompt("điền vào Tên:");
         }
+        fullName=xuLyChuoi(fullName);
+
+        //******************************************************//nhập vào và xử lý cmnd
         do {
             idCard=prompt("điền vào CMND:");
-            alert(number.isFinite(idCard));
+            if(idCard.length===9)
+                checkIdCard=kiemtraso(idCard);
+          //  for(let i=0;i<idCard.length;i++)
+              //  if(!Number.isInteger(parseInt(idCard[i]))) {
+               //     checkIdCard = false;
+              //      break;
+              //  }else checkIdCard=true;
         }
         while (!checkIdCard);
+        //******************************************************//nhập vào và xử lý ngày tháng năm sinh
+        do {
+            checkBirthDayTemporary="";
+            birthDay=prompt("điền vào Ngày Tháng Năm Sinh:"+checkBirthDayTemporary);
+            if(birthDay.length===10 && birthDay[2]==="/" && birthDay[5]==="/") {
+                for(let i=0; i<10;i++)
+                    if(i!==2 && i!==5)
+                checkBirthDayTemporary = checkBirthDayTemporary + birthDay[i];
+                checkBirthDay=kiemtraso(checkBirthDayTemporary);
+            }
+        }
+        while (!checkBirthDay);
 
-
-        birthDay=prompt("điền vào Ngày Tháng Năm Sinh:");
+        //******************************************************//nhập vào và xử lý email
         do {
             email=prompt("điền vào Email:");
             if(email.indexOf("@")>0 && email.indexOf(".")<email.length-1)
             checkEmail=email.indexOf(".")-email.indexOf("@")-1;
         }
         while(!checkEmail);
-
-
-        address=prompt("điền vào Địa Chỉ:");
-        typeCustomer=prompt("điền vào Loại Customer:");
-        discount=prompt("điền vào Giảm Giá:");
-        number=prompt("điền vào Số Lượng Đi Kèm:");
-        rentDays=prompt("điền vào Số Ngày thuê:");
+        //******************************************************//nhập vào và xử lý địa chỉ
+        while (address==="") {
+            address = prompt("điền vào Địa Chỉ:");
+        }
+        address=xuLyChuoi(address);
+        //******************************************************//nhập vào và xử lý loại Customer
+        while (typeCustomer==="") {
+            typeCustomer = prompt("điền vào Loại Customer:");
+        }
+        typeCustomer=xuLyChuoi(typeCustomer);
+        //******************************************************//nhập vào và xử lý giảm giá
+        do {
+            discount=prompt("điền vào Giảm Giá:");
+        }
+        while(!kiemtraso(discount));
+        //******************************************************//nhập vào và xử lý số lượng đi kèm
+        do {
+            number=prompt("điền vào Số Lượng Đi Kèm:");
+        }
+        while(!kiemtraso(number));
+        //******************************************************//nhập vào và xử lý số ngày thuê
+        do {
+            rentDays=prompt("điền vào Số Ngày thuê:");
+        }
+        while(!kiemtraso(rentDays));
+        //******************************************************//nhập vào và xử lý loại dịch vụ
         serviceRoom=prompt("điền vào Loại Dịch Vụ:");
+        //******************************************************//nhập vào và xử lý phòng thuê
         rentRoom=prompt("điền vào Loại Phòng Thuê:");
 
     }
@@ -223,6 +258,41 @@
         }
         money=moneyRoom*rentDays*(1-discount/100)-totalDiscount;
         ip=prompt( "số tiền "+money);
+    }
+    function kiemtraso(biencankiemtra) {
+        let kt;
+        for(let i=0;i<biencankiemtra.length;i++)
+            if(!Number.isInteger(parseInt(biencankiemtra[i]))) {
+                kt = false;
+                break;
+            }else kt=true;
+        return kt;
+    }
+    function xuLyChuoi(chuoi) {
+        let chuoi1;
+        let chuoi2="";
+        let j;
+        while (chuoi.indexOf("  ")>=0) {
+            chuoi=chuoi.replace("  ", " ");
+        }
+        while(chuoi[chuoi.length-1]===" ") {
+            chuoi = chuoi.substring(0, chuoi.length - 2);
+        }
+        chuoi=chuoi.toLowerCase();
+        for(let i=-1; i<chuoi.length;i++) {
+            if(chuoi[i]===" "||i===-1) {
+                i++;
+                chuoi1= chuoi[i].toUpperCase();
+                for(j=i;j<chuoi.length;j++)
+                    if(chuoi[j]===" "){
+                        j++; break;
+                    }
+                chuoi1= chuoi1+chuoi.substring(i+1,j);
+                chuoi2= chuoi2 +chuoi1;
+            }
+        }
+        return chuoi2;
+
     }
 </script>
 </body>
