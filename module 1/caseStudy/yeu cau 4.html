@@ -2,9 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>chưa xong</title>
 </head>
 <body>
+<script>
+    let addNewCustomer=[];
+    let tam;
+    let listCustomer=["Hải","Long","Đức","Tân","Nguyên","Quốc","Tiến","Hưng","Hùng","Thông"];
+    menu = prompt("1. Add New Customer:\n"+
+          "2. Delete Customer:\n"+
+          "chọn mục cần thao tác:"
+    )
+    if(menu==="1"){
+        soluongkhachhang = prompt("số lượng khách hàng cần nhập:");
+        for(let i=0;i<soluongkhachhang;i++){
+            addNewCustomer[i]=prompt("Tên Khách Hàng "+(i+1)+" :");
+            addNewCustomer[i]=xuLyTen(addNewCustomer[i])+"\n";
+        }
+
+        for(let j=0; j<soluongkhachhang;j++) {
+            tam=addNewCustomer[j];
+            for (let i = j; i < soluongkhachhang; i++) {
+                if (addNewCustomer[i][0] < tam[0]) {
+                    tam = addNewCustomer[i];
+                    addNewCustomer[i] = addNewCustomer[j];
+                    addNewCustomer[j] = tam;
+                }
+            }
+        }
+        let a=0;
+        alert("Danh Sách Khách Hàng:" +
+            addNewCustomer.join("\n"))
+    }
+
+    function xuLyTen(chuoi) {
+        let chuoi1;
+        while (chuoi.indexOf("  ")>=0) {
+            chuoi=chuoi.replace("  "," ");
+        }
+        while(chuoi[chuoi.length-1]===" ") {
+            chuoi = chuoi.substring(0, chuoi.length - 2);
+        }
+        chuoi=chuoi.toLowerCase();
+        chuoi1= chuoi[0].toUpperCase();
+        chuoi1= chuoi1+chuoi.substring(1,chuoi.length-1);
+        return chuoi1;
+    }
+
+
+</script>
 
 </body>
 </html>
