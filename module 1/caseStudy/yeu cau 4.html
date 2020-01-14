@@ -12,7 +12,10 @@
     menu = prompt("1. Add New Customer:\n"+
           "2. Delete Customer:\n"+
           "chọn mục cần thao tác:"
-    )
+    );
+    if (menu==="2")
+        deleteCustomer();
+
     if(menu==="1"){
         soluongkhachhang = prompt("số lượng khách hàng cần nhập:");
         for(let i=0;i<soluongkhachhang;i++){
@@ -23,16 +26,32 @@
         for(let j=0; j<soluongkhachhang;j++) {
             tam=addNewCustomer[j];
             for (let i = j; i < soluongkhachhang; i++) {
-                if (addNewCustomer[i][0] < tam[0]) {
+                if (addNewCustomer[i].charAt(0) < tam[0]) {
                     tam = addNewCustomer[i];
                     addNewCustomer[i] = addNewCustomer[j];
                     addNewCustomer[j] = tam;
                 }
             }
         }
-        let a=0;
         alert("Danh Sách Khách Hàng:" +
-            addNewCustomer.join("\n"))
+            chuoihienthi(addNewCustomer));
+    }
+
+
+    function deleteCustomer() {
+        let tenCanXoa;
+        tenCanXoa=prompt("chọn mục cần xóa:\n"+chuoihienthi(listCustomer));
+        listCustomer.splice(tenCanXoa-1,1);
+        alert("Danh Sách Khách Hàng:\n" +
+            chuoihienthi(listCustomer));
+    }
+
+    function chuoihienthi(arr) {
+        let chuoihienthi1 = "";
+        for (let i = 0; i < arr.length; i++) {
+            chuoihienthi1 = chuoihienthi1 + (i + 1) + ". " + arr[i] + "\n";
+        }
+        return  chuoihienthi1;
     }
 
     function xuLyTen(chuoi) {
@@ -44,8 +63,8 @@
             chuoi = chuoi.substring(0, chuoi.length - 2);
         }
         chuoi=chuoi.toLowerCase();
-        chuoi1= chuoi[0].toUpperCase();
-        chuoi1= chuoi1+chuoi.substring(1,chuoi.length-1);
+        chuoi1= chuoi.charAt(0).toUpperCase();
+        chuoi1= chuoi1+chuoi.substring(1,chuoi.length);
         return chuoi1;
     }
 

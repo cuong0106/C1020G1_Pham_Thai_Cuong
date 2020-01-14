@@ -42,7 +42,7 @@
         } else if (CustomersNeedToDelete < (arrListCustomer.length + 1)) {
             confirmDelete = prompt("bạn có chắc muốn xóa:\n1.No\n2.Yes",1);
             if(confirmDelete==="2")
-            arrListCustomer.splice(CustomersNeedToDelete-1,1);
+                arrListCustomer.splice(CustomersNeedToDelete-1,1);
             displayMainMenu();
         }
     }
@@ -180,7 +180,7 @@
                     do {
                         arrListCustomer[location][9] = prompt("điền vào Loại Dịch Vụ:");
                     }while (arrListCustomer[location][9] ==="");
-                    
+
                     ip = "";
                     displayInfomationCustomer(location);
                     ediwhile=0;
