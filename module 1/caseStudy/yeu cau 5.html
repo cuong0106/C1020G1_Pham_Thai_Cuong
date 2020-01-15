@@ -11,7 +11,7 @@
     let arrListCustomer = [];
 
     displayMainMenu();
-
+    //********************************************menu chính
     function displayMainMenu() {
         menu = prompt("1. Add New Customer.\n" +
             "2. Display Information Customer.\n" +
@@ -32,7 +32,7 @@
             deleteCustomer();
         }
     }
-
+    //**************************************************xoa
     function deleteCustomer() {
         let CustomersNeedToDelete;
         let confirmDelete;
@@ -46,7 +46,7 @@
             displayMainMenu();
         }
     }
-
+    //*************************************************menu thay đổi
     function editCustomer() {
         let displayCustomers1;
         displayCustomers1 = prompt(chuoiHienThiTenCMND(arrListCustomer) + (arrListCustomer.length + 1) + ". back",arrListCustomer.length+1);
@@ -55,10 +55,8 @@
         } else if (displayCustomers1 < (arrListCustomer.length + 1)) {
             edit((displayCustomers1-1));
         }
-
     }
-
-
+    //*********thay dổi
     function edit(location) {
         let ediwhile=1;
         let checkIdCard;
@@ -215,7 +213,7 @@
         }
 
     }
-
+    //*************************************************menu hiển thị danh sách tên và cmnd khách hàng
     function displayCustomers() {
         let displayCustomers1;
         displayCustomers1 = prompt(chuoiHienThiTenCMND(arrListCustomer) + (arrListCustomer.length + 1) + ". back", arrListCustomer.length+1);
@@ -226,7 +224,7 @@
             displayMainMenu();
         }
     }
-
+    //*********hiển thị danh sách khách hàng
     function chuoiHienThiTenCMND(arr) {
         let chuoiHienThi = "";
         for (let i = 0; i < arr.length; i++) {
@@ -246,7 +244,7 @@
         }
         return chuoiHienThi;
     }
-
+    //******* thông tin khách hàng
     function displayInfomationCustomer(location) {
         alert(
             "Customer số "+location+":"+
@@ -263,7 +261,7 @@
             "\n11. Loại Phòng Thuê: "+arrListCustomer[location][10]);
         displayMainMenu();
     }
-
+    //************************************************** thêm khách hàng
     function addNewCustomer(location) {
         let checkIdCard;
         let checkBirthDayTemporary;
@@ -345,7 +343,7 @@
         } while (!kiemtraso(arrListCustomer[location][10]));
 
     }
-
+    //******* kiểm tra dãy số
     function kiemtraso(biencankiemtra) {
         let kt;
         for (let i = 0; i < biencankiemtra.length; i++)
@@ -355,7 +353,7 @@
             } else kt = true;
         return kt;
     }
-
+    //******* xử lý chuổi đổi thành viết hoa chử cái đầu, xóa dấu cách thừa...
     function xuLyChuoi(chuoi) {
         let chuoi1;
         let chuoi2 = "";

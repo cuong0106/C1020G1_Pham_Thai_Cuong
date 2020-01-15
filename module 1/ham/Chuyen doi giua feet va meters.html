@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>tìm số nguyên tố nhập vào</title>
 </head>
 <body>
-$END$
+
+
+<script>
+    let a;
+    while (1){
+        a="";
+        a= prompt("Nhập Vào Giá Trị:");
+        alert(a+" feet được "+feetToMeters(parseInt(a))+"met\n"+
+        a+" meters được "+metersToFeet(parseInt(a))+"feet");
+    }
+
+    function feetToMeters(so) {
+        return so*0.305;
+    }
+
+    function metersToFeet(so) {
+        return so*3.279;
+    }
+
+
+
+
+</script>
+
 </body>
 </html>

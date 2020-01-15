@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng lớp date</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="200" style="border: 1px solid black"></canvas>
+<!--<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #d3d3d3;">-->
+
+<script>
+
+    let oopRectangle = function(length,width) {
+        this.getLength = length;
+        this.getWidth = width;
+        this.getPerimeter = function() {
+            return length;
+        };
+        this.getAcreage = function() {
+            return length * width;
+        };
+        this.setPainting = function(changeLength, changeWidth) {
+            length= changeLength;
+            width= changeWidth;
+        };
+        this.getPainting = function() {
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+            // Create gradient
+            let grd = ctx.createLinearGradient(0,0,200,0);//xử lý màu
+            grd.addColorStop(0,"red");  //xử lý màu
+            grd.addColorStop(0.5,"green");    //xử lý màu
+            grd.addColorStop(1,"blue");    //xử lý màu
+
+            ctx.fillStyle = grd;    //chọn màu
+            ctx.fillRect(20,5,length,width);
+        };
+    };
+    let a=prompt("nhập vào chiều dài:");
+    let b=prompt("nhập vào chiều rộng:");
+    let rectangle = new oopRectangle(a,b);
+    let Chieudai = rectangle.getLength;
+    let chieucao= rectangle.getWidth;
+    let dienTich = rectangle.getAcreage();
+    let chuvi=rectangle.getPerimeter();
+    alert("Chiều dài: " + Chieudai + ";" +
+        "\nchiều rộng: " + chieucao+";" +
+        "\nchu vi: " + chuvi+ ";" +
+        "\ndiện tích: " + dienTich);
+    rectangle.setPainting(50,20);
+    rectangle.getPainting();
+</script>
+
+</body>
+</html>

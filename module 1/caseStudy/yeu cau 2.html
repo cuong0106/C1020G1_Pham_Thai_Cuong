@@ -9,14 +9,25 @@
 
 <script>
 
-    let fullName,ip, yearOfBirth, currentYear,
-        totalDiscount, idCard, birthDay, email, address, typeCustomer, discount,
-        number, rentDays, serviceRoom, rentRoom, menu;
+    let fullName,
+        ip,
+        yearOfBirth,
+        currentYear,
+        totalDiscount,
+        idCard,
+        birthDay,
+        email,
+        address,
+        typeCustomer,
+        discount,
+        number,
+        rentDays,
+        serviceRoom,
+        rentRoom,
+        menu;
     ip="";
     fullName="";
     idCard="";
-
-
     while (1) {
         menu = prompt(
             "1. show information Customer\n" +
@@ -39,15 +50,17 @@
         }else menu="";
     }
 
-
-
-
-
-
     function show() {
-        alert("1. Tên: " +fullName+ "\n2. CMND: "+idCard+ "\n3.Ngày Tháng Năm Sinh: " +birthDay+ "\n4.Email: "+email+
-            "\n5.Địa Chỉ: "+address+"\n6.Loại Customer: "+discount+"\n7.Giảm Giá: "+discount+
-            "\n8. Số Lượng Đi Kèm: "+number+"\n9. Số Ngày Thuê: "+rentDays+"\n10. Loại Dịch Vụ: "+serviceRoom+
+        alert("1. Tên: " +fullName+
+            "\n2. CMND: "+idCard+
+            "\n3.Ngày Tháng Năm Sinh: " +birthDay+
+            "\n4.Email: "+email+
+            "\n5.Địa Chỉ: "+address+
+            "\n6.Loại Customer: "+discount+
+            "\n7.Giảm Giá: "+discount+
+            "\n8. Số Lượng Đi Kèm: "+number+
+            "\n9. Số Ngày Thuê: "+rentDays+
+            "\n10. Loại Dịch Vụ: "+serviceRoom+
             "\n11. Loại Phòng Thuê: "+rentRoom);
     }
     function add() {
@@ -73,10 +86,18 @@
     function edit() {
         let ediwhile=1;
         while(ediwhile) {
-            ip = prompt("1. Tên: " + fullName + "\n2. CMND: " + idCard + "\n3.Ngày Tháng Năm Sinh: " + birthDay +
-                "\n4.Email: " + email + "\n5.Địa Chỉ: " + address + "\n6.Loại Customer: " + discount + "\n7.Giảm Giá: " + discount +
-                "\n8. Số Lượng Đi Kèm: " + number + "\n9. Số Ngày Thuê: " + rentDays + "\n10. Loại Dịch Vụ: " + serviceRoom +
-                "\n11. Loại Phòng Thuê: " + rentRoom+"\n12. không cần thay đổi:");
+            ip = prompt("1. Tên: " + fullName +
+                "\n2. CMND: " + idCard +
+                "\n3.Ngày Tháng Năm Sinh: " + birthDay +
+                "\n4.Email: " + email +
+                "\n5.Địa Chỉ: " + address +
+                "\n6.Loại Customer: " + discount +
+                "\n7.Giảm Giá: " + discount +
+                "\n8. Số Lượng Đi Kèm: " + number +
+                "\n9. Số Ngày Thuê: " + rentDays +
+                "\n10. Loại Dịch Vụ: " + serviceRoom +
+                "\n11. Loại Phòng Thuê: " + rentRoom+
+                "\n12. không cần thay đổi:");
             switch (ip) {
                 case "1": {
                     fullName = prompt("điền vào Tên:");
@@ -150,9 +171,16 @@
                     ediwhile=0;
                     break;
                 default:
-                    ip = prompt("1. Tên: " + fullName + "\n2. CMND: " + idCard + "\n3.Ngày Tháng Năm Sinh: " + birthDay +
-                        "\n4.Email: " + email + "\n5.Địa Chỉ: " + address + "\n6.Loại Customer: " + discount + "\n7.Giảm Giá: " + discount +
-                        "\n8. Số Lượng Đi Kèm: " + number + "\n9. Số Ngày Thuê: " + rentDays + "\n10. Loại Dịch Vụ: " + serviceRoom +
+                    ip = prompt("1. Tên: " + fullName +
+                        "\n2. CMND: " + idCard +
+                        "\n3.Ngày Tháng Năm Sinh: " + birthDay +
+                        "\n4.Email: " + email +
+                        "\n5.Địa Chỉ: " + address +
+                        "\n6.Loại Customer: " + discount +
+                        "\n7.Giảm Giá: " + discount +
+                        "\n8. Số Lượng Đi Kèm: " + number +
+                        "\n9. Số Ngày Thuê: " + rentDays +
+                        "\n10. Loại Dịch Vụ: " + serviceRoom +
                         "\n11. Loại Phòng Thuê: " + rentRoom);
             }
         }
