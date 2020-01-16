@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mô tả nhiệt độ</title>
+</head>
+<body>
+<script>
+
+    let oopMobile = function() {
+        this.battery = 100;
+        this.messageIsWriting ="";
+        this.incomingMessage= new Array();
+        this.messageSent= new Array();
+        this.status=false;
+        this.getStatus = function () {
+            return status;
+        };
+        this.setStatus = function (boolean) {
+            this.getStatus=boolean;
+        };
+        this.charge=function () {
+            this.battery=100;
+        };
+        this.setBattery = function() {
+            battery--;
+        };
+        //*******soạn tin nhắn
+        this.texting=function (message) {
+            this.messageIsWriting=message;
+        };
+        //******** nhận tin nhắn đến
+        this.receiveMessages=function (message,phoneNumber) {
+            this.incomingMessage=message;
+        };
+        //*******gửi tin nhắn
+        this.sendMessage=function (message,phoneNumber) {
+
+            this.messageSent=message;
+        };
+        //*******xem tin trong hộp thư đến
+        this.getIncomingMessage=function () {
+            if(this.status) {
+                this.battery = this.battery - 1;
+                return this.incomingMessage;
+            }
+        };
+        //*******xem tin nhắn đã gửi
+        this.getMessageSent=function () {
+            if(this.status) {
+                this.battery = this.battery - 1;
+                return this.messageSent;
+            }
+        };
+        //*******sử dụng điện thoại
+    };
+    let doC=prompt("nhập vào chiều dài:");
+    let temperature = new oopTemperature(parseInt(doC));
+    let doF = temperature.getTemperatureF;
+    let doK = temperature.getTemperatureK;
+    alert(doC+" độ C tương tứng với:"+
+        "\nđộ F: " + doF+
+        "\nđộ K: "+doK);
+</script>
+
+Có một thông số về trạng thái pin tính bằng đơn vị số nguyên (tối đa 100 đv)
+Có một vùng nhớ dùng để lưu tin nhắn đang soạn thảo.
+Có một vùng nhớ dùng để lưu tin nhắn trong hộp thư đến.
+Có một vùng nhớ dùng để lưu tin nhắn đã gửi.
+Có chức năng kiểm tra trạng thái điện thoại bật hay tắt.
+Có chức năng bật và tắt điện thoại.
+Có chức năng xạc pin điện thoại.
+Có chức năng soạn tin nhắn.
+Có chức năng nhận tin nhắn từ một chiếc mobile khác.
+Có chức năng gửi tin nhắn tới một chiếc mobile khác.
+Có chức năng xem tin trong hộp thư đến.
+Có chức năng xem tin đã gửi.
+Sau mỗi lần sử dụng một chức năng, năng lượng pin sẽ giảm đi một đơn vị.
+Các chức năng không thể hoạt động nếu điện thoại chưa bật.
+
+
+</body>
+</html>

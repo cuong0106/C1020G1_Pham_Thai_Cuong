@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" onclick="dienthoainokia();" value="điện thoại nokia">
+<script>
+
+    let oopMobile = function() {
+        this.battery = 100;
+        this.messageIsWriting =new Array();
+        this.incomingMessage= new Array("chưa có tin nhắn đến");
+        this.messageSent= new Array("chưa có tin đã gửi");
+        this.status=true;
+        this.getStatus = function () {
+            return status;
+        };
+        this.getIncomingMessage=function () {
+            if(this.status) {
+                this.battery = this.battery - 1;
+                return this.incomingMessage;
+            }
+        };
+        this.getMessageSent=function () {
+            if(this.status) {
+                this.battery = this.battery - 1;
+                return this.messageSent;
+            }
+        };
+        this.texting=function (message) {
+            this.messageIsWriting=message;
+        };
+        //*******sử dụng điện thoại
+    };
+    let nokia=new oopMobile();
+
+    function soantinnhan() {
+    document.write("<input id='noidungsoantinnhan'><br>" +
+        "<input type='button' value='đã soạn xong' onclick='dasoanxong();'>");
+    }
+    function dasoanxong() {
+        document.body.innerHTML = '';
+        dienthoainokia();
+    }
+    function guitinnhan() {
+        let tinNhan=nokia.getIncomingMessage();
+        let luongPin=nokia.battery;
+        document.getElementById("hienthi").innerHTML="Lượng Pin Hiện Tại: "+luongPin+"<br> nội dung tin nhắn: "+tinNhan;
+    }
+    //**********************************mà hình nokia
+    function dienthoainokia() {
+        document.write("<h1 id='hienthi'>hiển thị</h1>"+
+        "<button onclick='guitinnhan();'>gửi tin nhắn</button>"+
+        "<button onclick='soantinnhan();'>soạn tin nhắn</button>")
+    }
+    </script>
+</body>
+</html>
