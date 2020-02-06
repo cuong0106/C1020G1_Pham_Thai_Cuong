@@ -70,22 +70,22 @@
                     if(mang[i][j+1]==="X"&&mang[i][j+2]==="X" &&mang[i][j+3]==="X"&&mang[i][j+4]==="X"&&(mang[i][j+5]!=="O"|| mang[i][j-1]!=="O")){
                         kq= true;
                     }
-                    if(typeof mang[i-1][j]==="undefined")
+                    if(typeof mang[i-1][j]==="undefined"){
                         if(mang[i+1][j]==="X"&&mang[i+2][j]==="X"&&mang[i+3][j]==="X"&&mang[i+4][j]==="X"&&mang[i+5][j]!=="O"){
                             kq= true;
-                        }else if(mang[i+1][j]==="X"&&mang[i+2][j]==="X"&&mang[i+3][j]==="X"&&mang[i+4][j]==="X"&&(mang[i+5][j]!=="O"||mang[i-1][j]!=="O")){
+                        }}else if(mang[i+1][j]==="X"&&mang[i+2][j]==="X"&&mang[i+3][j]==="X"&&mang[i+4][j]==="X"&&(mang[i+5][j]!=="O"||mang[i-1][j]!=="O")){
                             kq= true;
                         }
-                    if(typeof mang[i-1][j-1]==="undefined")
+                    if(typeof mang[i-1][j-1]==="undefined"){
                         if(mang[i+1][j+1]==="X"&&mang[i+2][j+2]==="X"&&mang[i+3][j+3]==="X"&&mang[i+4][j+4]==="X"&&mang[i+5][j+5]!=="O"){
                             kq= true;
-                        } else if(mang[i+1][j+1]==="X"&&mang[i+2][j+2]==="X"&&mang[i+3][j+3]==="X"&&mang[i+4][j+4]==="X"&&(mang[i-1][j-1]!=="O"||mang[i+5][j+5]!=="O")){
+                        }} else if(mang[i+1][j+1]==="X"&&mang[i+2][j+2]==="X"&&mang[i+3][j+3]==="X"&&mang[i+4][j+4]==="X"&&(mang[i-1][j-1]!=="O"||mang[i+5][j+5]!=="O")){
                             kq= true;
                         }
-                    if(typeof mang[i-5][j+5]==="undefined")
+                    if(typeof mang[i-5][j+5]==="undefined"){
                         if(mang[i-1][j+1]==="X"&&mang[i-2][j+2]==="X"&&mang[i-3][j+3]==="X"&&mang[i-4][j+4]==="X"&&mang[i+1][j-1]!=="O"){
                             kq= true;
-                        } else if(mang[i-1][j+1]==="X"&&mang[i-2][j+2]==="X"&&mang[i-3][j+3]==="X"&&mang[i-4][j+4]==="X"&&(mang[i+1][j-1]!=="O"||mang[i-5][j+5]!=="O")){
+                        }} else if(mang[i-1][j+1]==="X"&&mang[i-2][j+2]==="X"&&mang[i-3][j+3]==="X"&&mang[i-4][j+4]==="X"&&(mang[i+1][j-1]!=="O"||mang[i-5][j+5]!=="O")){
                             kq= true;
                         }
                 }

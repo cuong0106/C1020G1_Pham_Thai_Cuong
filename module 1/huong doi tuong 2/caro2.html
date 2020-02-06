@@ -26,7 +26,7 @@
         for (i = 0; i < 20; i++) {
             data += "<tr>";
             for (j = 0; j < 20; j++) {
-                data += "<td align='center' style='width:60px;height:60px ' onclick='changeValue(" + i + "," + j + ");'><img style='width: 35px' src=";
+                data += "<td align='center' style='width:60px;height:60px ' onclick='changeValue(" + i + "," + j + ");'><img style='width: 38px' src=";
                 if(mang[i][j]==='X'){
                     data+="'pikachu.png'"}
                 else if(mang[i][j]==='O'){
@@ -72,13 +72,23 @@
                     if(mang[i][j+1]==="X"&&mang[i][j+2]==="X" &&mang[i][j+3]==="X"&&mang[i][j+4]==="X"&&(mang[i][j+5]!=="O"|| mang[i][j-1]!=="O")){
                         kq= true;
                     }
+                    if(i>0){
                     if(mang[i+1][j]==="X"&&mang[i+2][j]==="X"&&mang[i+3][j]==="X"&&mang[i+4][j]==="X"&&(mang[i+5][j]!=="O"||mang[i-1][j]!=="O")){
                         kq= true;
+                    }}else
+                    if(mang[i+1][j]==="X"&&mang[i+2][j]==="X"&&mang[i+3][j]==="X"&&mang[i+4][j]==="X"){
+                        kq= true;
                     }
+
                     if(mang[i+1][j+1]==="X"&&mang[i+2][j+2]==="X"&&mang[i+3][j+3]==="X"&&mang[i+4][j+4]==="X"&&(mang[i-1][j-1]!=="O"||mang[i+5][j+5]!=="O")){
                         kq= true;
                     }
+                    if(i>4){
                     if(mang[i-1][j+1]==="X"&&mang[i-2][j+2]==="X"&&mang[i-3][j+3]==="X"&&mang[i-4][j+4]==="X"&&(mang[i+1][j-1]!=="O"||mang[i-5][j+5]!=="O")){
+                        kq= true;
+                    }} else
+                    if(i===4)
+                    if(mang[i-1][j+1]==="X"&&mang[i-2][j+2]==="X"&&mang[i-3][j+3]==="X"&&mang[i-4][j+4]==="X"){
                         kq= true;
                     }
                 }
@@ -91,18 +101,28 @@
             let j;
             for ( j = 0; j < mang[i].length; j++) {
                 if(mang[i][j]==="O") {
-                    if(mang[i][j+1]==="O"&&mang[i][j+2]==="O" &&mang[i][j+3]==="O"&&mang[i][j+4]==="O"&&(mang[i][j+5]!=="X"|| mang[i][j-1]!=="X")) {
+                    if(mang[i][j+1]==="O"&&mang[i][j+2]==="O" &&mang[i][j+3]==="O"&&mang[i][j+4]==="O"&&(mang[i][j+5]!=="X"|| mang[i][j-1]!=="X")){
                         kq= true;
                     }
-                    if(mang[i+1][j]==="O"&&mang[i+2][j]==="O"&&mang[i+3][j]==="O"&&mang[i+4][j]==="O"&&(mang[i+5][j]!=="X"||mang[i-1][j]!=="X")) {
+                    if(i>0){
+                        if(mang[i+1][j]==="O"&&mang[i+2][j]==="O"&&mang[i+3][j]==="O"&&mang[i+4][j]==="O"&&(mang[i+5][j]!=="X"||mang[i-1][j]!=="X")){
+                            kq= true;
+                        }}else
+                    if(mang[i+1][j]==="O"&&mang[i+2][j]==="O"&&mang[i+3][j]==="O"&&mang[i+4][j]==="O"){
                         kq= true;
                     }
-                    if(mang[i+1][j+1]==="O"&&mang[i+2][j+2]==="O"&&mang[i+3][j+3]==="O"&&mang[i+4][j+4]==="O"&&(mang[i-1][j-1]!=="X"||mang[i+5][j+5]!=="X")) {
+
+                    if(mang[i+1][j+1]==="O"&&mang[i+2][j+2]==="O"&&mang[i+3][j+3]==="O"&&mang[i+4][j+4]==="O"&&(mang[i-1][j-1]!=="X"||mang[i+5][j+5]!=="X")){
                         kq= true;
                     }
-                    if(mang[i-1][j+1]==="O"&&mang[i-2][j+2]==="O"&&mang[i-3][j+3]==="O"&&mang[i-4][j+4]==="O"&&(mang[i+1][j-1]!=="X"||mang[i-5][j+5]!=="X")) {
-                        kq= true;
-                    }
+                    if(i>4){
+                        if(mang[i-1][j+1]==="O"&&mang[i-2][j+2]==="O"&&mang[i-3][j+3]==="O"&&mang[i-4][j+4]==="O"&&(mang[i+1][j-1]!=="X"||mang[i-5][j+5]!=="X")){
+                            kq= true;
+                        }} else
+                    if(i===4)
+                        if(mang[i-1][j+1]==="O"&&mang[i-2][j+2]==="O"&&mang[i-3][j+3]==="O"&&mang[i-4][j+4]==="O"){
+                            kq= true;
+                        }
                 }
             }
         }
