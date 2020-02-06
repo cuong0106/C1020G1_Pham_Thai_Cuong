@@ -5,23 +5,24 @@
     <title>yeu cau 5</title>
 </head>
 <body>
-<h1>Yêu Cầu 5</h1>
+<h1>Yêu Cầu 6</h1>
+<input type="button"; onclick="beginMenu=true;
+    displayMainMenu();" value="Run">
+
 <script>
 
-    let oopCustomer=function(){
-        this.fullName;
-        this.idCard;
-        this.birthDay;
-        this.email;
-        this.address;
-        this.typeCustomer;
-        this.discount;
-        this.number;
-        this.rentDays;
-        this.serviceRoom;
-        this.rentRoom;
-
-
+    function OopCustomer(){
+        // this.fullName;
+        // this.idCard;
+        // this.birthDay;
+        // this.email;
+        // this.address;
+        // this.typeCustomer;
+        // this.discount;
+        // this.number;
+        // this.rentDays;
+        // this.serviceRoom;
+        // this.rentRoom;
         this.getFullName=function () {
             return this.fullName;
         };
@@ -54,9 +55,6 @@
         this.getRentRoom=function () {
             return this.rentRoom;
         };
-
-
-
 
         this.setFullName=function (fullName) {
             this.fullName =fullName ;
@@ -156,9 +154,7 @@
         };
     };
 
-
-
-    //customer1=new oopCustomer();
+    //customer1=new OopCustomer();
     // customer1.setAddress("Đà Nẵng");
     // customer1.setRentDays(10);
     // customer1.setTypeCustomer("Gold");
@@ -166,7 +162,6 @@
     // customer1.setServiceRoom("Villa");
     // customer1.setDiscount(10);
     // customer1.setFullName();
-
 
     let listCustomers=[];
     var beginMenu=true;
@@ -198,10 +193,8 @@
         }
     }
 
-
-
     function addNewCustomer () {
-        let customer=new oopCustomer();
+        let customer=new OopCustomer();
         customer.setFullName(prompt("điền vào Tên:"));
         customer.setIdCard(prompt("điền vào CMND:"));
         customer.setBirthDay(prompt("điền vào Ngày Tháng Năm Sinh:"));
@@ -375,9 +368,6 @@
             displayMainMenu();
         }
     }
-
-
-
     /*
 
         //***********************yc6

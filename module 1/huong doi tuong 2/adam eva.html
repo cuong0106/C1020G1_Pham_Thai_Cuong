@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a đam e va</title>
+</head>
+<body>
+<div style=" width: 200px">
+    <h1 id="idName">Name:</h1>
+    <label id="idGender">Gender:</label><br>
+    <label id="idWeight">Weight:</label><br>
+    <input type="button" onclick="fEatApple();" value="Ăn Táo"><br>
+    <input id="idSay">
+    <input type="button" onclick="eva.say(eva.name+' say: '+document.getElementById('idSay').value);" value="Nói">
+</div>
+<div style=" width: 200px ">
+    <h1 id="idName2">Name:</h1>
+    <label id="idGender2">Gender:</label><br>
+    <label id="idWeight2">Weight:</label><br>
+    <input type="button" onclick="fEatApple2();" value="Ăn Táo"> <br>
+    <input  id="idSay2">
+    <input type="button" onclick="adam.say(adam.name+' say: '+document.getElementById('idSay').value);" value="Nói">
+</div>
+<div style=" width: 20px ">
+    <h1 id="idName3">Táo:</h1>
+    <label id="idWeight3">Weight:</label><br>
+</div>
+
+
+
+
+<script>
+
+
+    var eva= new Human('Eva','female',45);
+    var adam= new Human('Adam','male',55);
+    var apple= new Apple();
+
+    main();
+    function main() {
+        document.getElementById("idName").innerHTML='Name: '+eva.getName();
+        document.getElementById("idGender").innerHTML='Gender: '+eva.gender;
+        document.getElementById("idWeight").innerHTML='Weight: '+eva.getWeight();
+        document.getElementById("idName2").innerHTML='Name: '+adam.getName();
+        document.getElementById("idGender2").innerHTML='Gender: '+adam.gender;
+        document.getElementById("idWeight2").innerHTML='Weight: '+adam.getWeight();
+        document.getElementById("idWeight3").innerHTML='Weight: '+apple.getWeight();
+    }
+
+     function fEatApple() {
+         eva.eat(apple);
+         document.getElementById("idWeight").innerHTML='Weight: '+eva.getWeight();
+         document.getElementById("idWeight3").innerHTML='Weight: '+apple.getWeight();
+     }
+    function fEatApple2() {
+        adam.eat(apple);
+        document.getElementById("idWeight2").innerHTML='Weight: '+adam.getWeight();
+        document.getElementById("idWeight3").innerHTML='Weight: '+apple.getWeight();
+        // var a = apple.isEmpty();
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function Apple(){
+        this.weight= 10;
+        this.decrease= function (dv) {
+            this.weight -=dv;
+        };
+        this.isEmpty= function () {
+            if(this.weight===0)
+                return false;
+            else return true;
+        };
+        this.getWeight =function (){
+            return this.weight;
+        };
+    }
+
+    function Human(name,gender,weight) {
+        this.name=name;
+        this.gender=gender;
+        this.weight=weight;
+        this.isMale=function() {
+            if(this.gender==='male')
+                return true;
+            else
+                return false;
+        };
+        this.setGender = function (gender) {
+            this.gender=gender;
+        };
+        this.checkApple = function (Apple) {
+            if(Apple.getWeight()>0)
+                return true;
+        };
+        this.eat = function (Apple) {
+            if(this.checkApple(Apple)){
+                Apple.decrease(1);
+                this.weight+=1;
+            }else
+                this.say("hết táo rồi lấy gì mà ăn?")
+        };
+        this.say = function (a) {
+            alert(a);
+        };
+        this.getName=function () {
+            return this.name;
+        };
+        this.setName=function (name) {
+            this.name = name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setWeight = function (dv) {
+            this.weight=dv;
+
+        };
+
+
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
