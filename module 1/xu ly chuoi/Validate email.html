@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra nhập vào mail</title>
+</head>
+<body>
+<script>
+    function kiemTraMail(str) {
+        var regexp=/^[0-9A-Za-z]+@[A-Za-z0-9]+\.[A-Za-z0-9]+$/;
+
+        if(regexp.test(str)){
+            return true;
+        } else return false;
+    }
+    var str= "fdsu@ifmailcom";
+    alert(kiemTraMail(str));
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

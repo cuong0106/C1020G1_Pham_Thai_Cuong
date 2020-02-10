@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function ktds(str) {
+        for(let i=0; i<str.length;i++){
+            if(str.charAt(i)!==str.charAt(str.length-i-1)){
+                alert("false");
+                return false;
+            }
+        }
+        alert("true");
+        return true;
+    }
+</script>
+
+</body>
+</html>

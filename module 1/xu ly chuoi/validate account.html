@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>account</title>
+</head>
+<body>
+
+<script>
+    function kiemTraaccount(str) {
+        var Pattern=/^[0-9a-z_]{6,}$/;
+
+        if(Pattern.test(str)){
+            return true;
+        } else return false;
+    }
+    var str= "fdfsd";
+    alert(kiemTraaccount(str));
+
+
+
+</script>
+
+</body>
+</html>

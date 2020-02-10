@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function turnOn(machine) {
+        //document.writeln(machine.isOn);
+        machine.isOn=4;
+        //document.writeln(machine.isOn);
+       machine = {
+           isOn: 5
+       };
+        machine.isOn=3;
+        //document.writeln(machine.isOn);
+    }
+    let a=0;
+    let computer = {
+        isOn: 1
+    };
+    computer = {
+        isOn: 5
+    };
+    turnOn(computer);
+    document.write(computer.isOn);// false;
+</script>
+</body>
+</html>

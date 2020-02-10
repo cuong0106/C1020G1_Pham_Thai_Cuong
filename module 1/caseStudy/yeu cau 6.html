@@ -12,17 +12,17 @@
 <script>
 
     function OopCustomer(){
-        // this.fullName;
-        // this.idCard;
-        // this.birthDay;
-        // this.email;
-        // this.address;
-        // this.typeCustomer;
-        // this.discount;
-        // this.number;
-        // this.rentDays;
-        // this.serviceRoom;
-        // this.rentRoom;
+         this.fullName =null;
+         this.idCard=null;
+         this.birthDay=null;
+         this.email=null;
+         this.address=null;
+         this.typeCustomer=null;
+         this.discount=null;
+         this.number=null;
+         this.rentDays=null;
+         this.serviceRoom=null;
+         this.rentRoom=null;
         this.getFullName=function () {
             return this.fullName;
         };
@@ -152,7 +152,7 @@
             money=moneyRoom*this.rentDays*(1-this.discount/100)-totalDiscount;
             return  money;
         };
-    };
+    }
 
     //customer1=new OopCustomer();
     // customer1.setAddress("Đà Nẵng");
@@ -164,6 +164,7 @@
     // customer1.setFullName();
 
     let listCustomers=[];
+    let listEmployee=[];
     var beginMenu=true;
     displayMainMenu();
     //********************************************menu chính
@@ -174,7 +175,8 @@
                 "3. displayTotalPayOfCustomner.\n" +
                 "4. Edit Information Customer.\n" +
                 "5. Delete Customer.\n" +
-                "6. Exit.\n");
+                "6. Add New Employee.\n" +
+                "7. Exit.\n");
             if (menu === "1") {
                 listCustomers.push(addNewCustomer());
                 displayMainMenu();
@@ -186,7 +188,9 @@
                 editCustomer();
             } else if (menu === "5") {
                 deleteCustomer();
-            } else if (menu === "6") {
+            }else if (menu === "6") {
+                listEmployee.push(addNewEmployee());
+            } else if (menu === "7") {
                 beginMenu=false;
             } else
                 displayMainMenu();
@@ -196,9 +200,9 @@
     function addNewCustomer () {
         let customer=new OopCustomer();
         customer.setFullName(prompt("điền vào Tên:"));
-        customer.setIdCard(prompt("điền vào CMND:"));
-        customer.setBirthDay(prompt("điền vào Ngày Tháng Năm Sinh:"));
-        customer.setEmail(prompt("điền vào Email:"));
+        customer.setIdCard(addIdCard());
+        customer.setBirthDay(addBirthDay());
+        customer.setEmail(addEmail());
         customer.setAddress(prompt("điền vào Địa Chỉ:"));
         customer.setTypeCustomer(prompt("điền vào Loại Customer:"));
         customer.setDiscount(prompt("điền vào Giảm Giá:"));
@@ -368,9 +372,247 @@
             displayMainMenu();
         }
     }
+    function addIdCard(){
+        let itemIdCard;
+        let checkIdCard=/^[0-9]{9}$/;
+        do{
+        itemIdCard=prompt("điền vào CMND:")}
+    while(!checkIdCard.test(itemIdCard));
+        return itemIdCard;
+    }
+    function addEmail(){
+        let itemEmail;
+        let checkEmail=/^[0-9a-zA-Z]+@[0-9a-zA-Z]+\.[0-9a-zA-Z]+$/;
+        do{
+            itemEmail=prompt("điền vào Email:")}
+        while(!checkEmail.test(itemEmail));
+        return itemEmail;
+    }
+    function addBirthDay(){
+        let itemBirthDay;
+        let checkBirthDay=/^[0-2][0-9]|3[0-1]\/([0][0-9])|([1][1-2])\/[0-9]{4}$/;
+        do{itemBirthDay=prompt("điền vào Birthday:")}
+        while(!checkBirthDay.test(itemBirthDay));
+        return itemBirthDay;
+    }
+
+
+    // yc6 t2
+
+    function Employee (){
+        // this.fullName =null;
+        // this.birthDay=null;
+        // this.idCard=null;
+        // this.phoneNumber=null;
+        // this.email=null;
+        // this.level=null;
+        // this.workingPosition=null;
+        // this.salary=null;
+        // this.address=null;
+        // this.typeCustomer=null;
+        // this.discount=null;
+        // this.number=null;
+        // this.rentDays=null;
+        // this.serviceRoom=null;
+        // this.rentRoom=null;
+        this.getFullName=function () {
+            return this.fullName;
+        };
+        this.getBirthDay=function () {
+            return this.birthDay;
+        };
+        this.getIdCard=function () {
+            return this.idCard;
+        };
+        this.getPhoneNumber=function () {
+            return this.phoneNumber;
+        };
+        this.getEmail=function () {
+            return this.email;
+        };
+        this.getLevel=function () {
+            return this.level;
+        };
+        this.getWorkingPosition=function () {
+            return this.workingPosition;
+        };
+        this.getSalary=function () {
+            return this.salary;
+        };
+        this.getAddress=function () {
+            return this.address;
+        };
+        this.getTypeCustomer=function () {
+            return this.typeCustomer;
+        };
+        this.getDiscount=function () {
+            return this.discount;
+        };
+        this.getNumber=function () {
+            return this.number;
+        };
+        this.getRentDays=function () {
+            return this.rentDays;
+        };this.getServiceRoom=function () {
+            return this.serviceRoom;
+        };
+        this.getRentRoom=function () {
+            return this.rentRoom;
+        };
+
+        this.setFullName=function (fullName) {
+            this.fullName =fullName ;
+        };
+        this.setBirthDay=function (birthDay) {
+            this.birthDay=birthDay;
+        };
+        this.setIdCard=function (idCard) {
+            this.idCard=idCard;
+        };
+        this.setPhoneNumber=function (phoneNumber) {
+            this.birthDay=phoneNumber;
+        };
+        this.setEmail=function (email) {
+            this.email=email;
+        };
+        this.setLevel=function (level) {
+            this.level=level;
+        };
+        this.setWorkingPosition=function (workingPosition) {
+            this.level=workingPosition;
+        };
+        this.setSalary=function (salary) {
+            this.level=salary;
+        };
+        this.setAddress=function (address) {
+            this.address=address;
+        };
+        this.setTypeCustomer=function (typeCustomer) {
+            this.typeCustomer=typeCustomer;
+        };
+        this.setDiscount=function (discount) {
+            this.discount=discount;
+        };
+        this.setNumber=function (number) {
+            this.number=number;
+        };
+        this.setRentDays=function (rentDays) {
+            this.rentDays=rentDays;
+        };
+        this.setServiceRoom=function (serviceRoom) {
+            this.serviceRoom=serviceRoom;
+        };
+        this.setRentRoom=function (rentRoom) {
+            this.rentRoom=rentRoom;
+        };
+        this.amount=function () {
+            let discountAddress,
+                discountTypeCustomer,
+                ageCustomer,
+                discountYearOld,
+                moneyRoom,
+                currentYear,
+                yearOfBirth,
+                totalDiscount,
+                money,
+                discountRentDays;
+
+            switch (this.address) {
+                case "Đà Nẵng": discountAddress=20;break;
+                case "Huế": discountAddress=10;break;
+                case "Quảng Nam": discountAddress=5;break;
+                default:
+            }
+            //***************************************************************giảm giá theo thời gian thuê phòng
+            if(this.rentDays<2)
+                discountRentDays=0;
+            else if(this.rentDays<5)
+                discountRentDays=10;
+            else if(this.rentDays<7)
+                discountRentDays=20;
+            else if(this.rentDays>7)
+                discountRentDays=30;
+            //*****************************************************************giảm giá theo typeCustomer
+            switch (this.typeCustomer) {
+                case "Diamond": discountTypeCustomer=15;break;
+                case "Platium": discountTypeCustomer=10;break;
+                case "Gold": discountTypeCustomer=5;break;
+                case "Silver": discountTypeCustomer=2;break;
+                case "Member": discountTypeCustomer=0;break;
+                default:
+            }
+            //****************************************************************giảm theo tuổi
+            currentYear=new Date().getFullYear();
+            yearOfBirth=new Date(this.birthDay).getFullYear();
+
+            if(new Date().getMonth()>new Date(this.birthDay).getMonth())
+                ageCustomer=currentYear-yearOfBirth;
+            else if((new Date().getMonth()===new Date(this.birthDay).getMonth()) && new Date().getDate()>new Date(this.birthDay).getDate())
+                ageCustomer=currentYear-yearOfBirth;
+            else ageCustomer=(currentYear-yearOfBirth-1);
+
+            if(ageCustomer>=30&& this.address==="Đà Nẵng")
+                discountYearOld=2;
+            else if(ageCustomer>=20&& this.address==="Đà Nẵng")
+                discountYearOld=1;
+            else discountYearOld=0;
+            //****************************************************************Tổng giảm giá
+            totalDiscount=discountAddress+discountRentDays+discountTypeCustomer+discountYearOld;
+            //****************************************************************
+            switch (this.serviceRoom) {
+                case "Villa": moneyRoom=500;break;
+                case "House": moneyRoom=300;break;
+                case "Room": moneyRoom=100; break;
+                default:
+            }
+            money=moneyRoom*this.rentDays*(1-this.discount/100)-totalDiscount;
+            return  money;
+        };
+        this.payroll = function () {
+            var PatternManager=/^manager$/i;
+            var Patternsale=/^sale$/i;
+            var PatternMarketing=/^marketing$/i;
+            if(Patternsale.test(workingPosition)){
+                return 500 + this.salary;
+            } else
+            if(PatternManager.test(workingPosition)){
+                return 300 + this.salary;
+            } else
+            if(PatternMarketing.test(workingPosition)){
+                return 200 + this.salary;
+            }
+        }
+    }
+
+
+    function addNewEmployee () {
+        let employee=new Employee();
+        employee.setFullName(prompt("điền vào Tên:"));
+        employee.setBirthDay(prompt("điền vào Ngày Tháng Năm Sinh:"));
+        employee.setIdCard(prompt("điền vào CMND:"));
+        employee.setPhoneNumber(prompt("điền vào số điện thoại:"));
+        employee.setEmail(prompt("điền vào Email:"));
+        employee.setLevel(prompt("điền vào trình độ:"));
+        employee.setWorkingPosition(prompt("điền vào chức vụ làm việc:"));
+        employee.setSalary(prompt("điền vào lương:"));
+        employee.setAddress(prompt("điền vào Địa Chỉ:"));
+        employee.setTypeCustomer(prompt("điền vào Loại Customer:"));
+        employee.setDiscount(prompt("điền vào Giảm Giá:"));
+        employee.setNumber(prompt("điền vào Số Lượng Đi Kèm:"));
+        employee.setRentDays(prompt("điền vào Số Ngày thuê:"));
+        employee.setServiceRoom(prompt("điền vào Loại Dịch Vụ:"));
+        employee.setRentRoom(prompt("điền vào Loại Phòng Thuê:"));
+        return employee;
+    }
+
+
+
+
+
+
     /*
 
-        //***********************yc6
+        //***********************yc6 t2
 
 
         let menu;

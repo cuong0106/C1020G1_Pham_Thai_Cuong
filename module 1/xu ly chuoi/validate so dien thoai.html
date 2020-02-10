@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sdt</title>
+</head>
+<body>
+
+
+<script>
+
+    function kiemTraSoDienThoai(str) {
+        var Pattern=/^\([0-9]{2}\)\-\(0[0-9]{9}\)$/;
+
+        if(Pattern.test(str)){
+            return true;
+        } else return false;
+    }
+    var str= "(84)-(0978489648)";
+    alert(kiemTraSoDienThoai(str));
+
+
+
+
+
+</script>
+
+</body>
+</html>

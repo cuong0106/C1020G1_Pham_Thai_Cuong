@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function kiemTraten(str) {
+        var Pattern=/^[ACP][0-9]{4}[GHIKLM]$/;
+
+        if(Pattern.test(str)){
+            return true;
+        } else return false;
+    }
+    var str= "C0318G";
+    alert(kiemTraten(str));
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
