@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>câu 1</title>
+</head>
+<body>
+<script>
+    let soLuongSoNguyenDuong;
+    let mangNhapVao=[];
+    let mangSapXep=[];
+    do {
+
+        soLuongSoNguyenDuong=prompt("nhập vào số lượng phần tử trong mảng cần nhập: >6");
+    }
+    while (!(soLuongSoNguyenDuong>6));
+    for(let i=0;i<soLuongSoNguyenDuong;i++){
+        mangNhapVao[i]=prompt("nhập vào phần tử thứ "+(i+1)+" trong mảng: ");
+        mangSapXep[i]=mangNhapVao[i];
+    }
+    mangSapXep.sort(function (a,b){return a-b});
+    alert("mảng nhập vào là:"+mangNhapVao+"\nmảng sau khi sắp xếp tăng dần là:"+mangSapXep);
+
+</script>
+
+
+</body>
+</html>

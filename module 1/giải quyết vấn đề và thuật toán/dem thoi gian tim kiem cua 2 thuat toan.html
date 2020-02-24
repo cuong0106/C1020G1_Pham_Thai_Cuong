@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra thời gian tìm kiếm của 2 thuật toán</title>
+</head>
+<body>
+<script>
+
+    var nums = [];
+    for(var i=0;i<100;++i)
+        nums[i] = i;  //Math.floor(Math.random()*101);
+    
+    function findLinear(arr,data) {
+        let timenew=performance.now();
+        for(let i=0; i<arr.length;i++){
+            if(arr[i]==data){
+                return performance.now()-timenew;
+            }
+        }
+        
+    }
+    function FindBinary(arr,data) {
+        let timenew=performance.now();
+        let t=true;
+        let itemt=arr.length;
+        let itemp=0;
+        while(t) {
+            let item=parseInt(itemt+itemp)/2;
+            if(data== arr[item]){
+                return performance.now()-timenew;
+            }
+            else if(data > arr[item / 2])
+                itemp=item;
+            else itemt=item;
+        }
+
+    }
+    var val = parseInt(prompt("Enter a value to count: "));
+
+    alert("tìm kiếm tuyến tính"+findLinear(nums,val)+"\n tìm kiếm nhị phân"+FindBinary(nums,val));
+
+    
+    
+    
+    
+</script>
+
+
+
+
+
+
+</body>
+</html>

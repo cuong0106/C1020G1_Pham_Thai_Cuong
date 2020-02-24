@@ -57,6 +57,7 @@
         this.light = function () {
             return this.status;
         };
+
         this.turnOn = function () {
             if (this.getBatteryInfo() > 0)
                 this.status = true;

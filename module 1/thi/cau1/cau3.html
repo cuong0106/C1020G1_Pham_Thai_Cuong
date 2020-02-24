@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>câu 3</title>
+</head>
+<body>
+
+<script>
+    let chuoiNhapVao;
+    do {
+        chuoiNhapVao=prompt("nhập vào một chuổi:");
+    }
+    while (!chuoiNhapVao);
+    alert(xuLyChuoi(chuoiNhapVao));
+
+    function xuLyChuoi(chuoi) {
+        let chuoiTraVe;
+        while (chuoi.indexOf("  ")>=0) {
+            chuoi=chuoi.replace("  "," ");
+        }
+        chuoi=chuoi.trim();
+        chuoi=chuoi.toLocaleLowerCase();
+        chuoiTraVe= chuoi.charAt(0).toUpperCase();
+        for(let i=1;i<chuoi.length;i++){
+            if(chuoi.charAt(i)==" "){
+                chuoiTraVe+=chuoi.charAt(i);
+                chuoiTraVe+=chuoi.charAt(i+1).toUpperCase();
+                i++;
+            }else{
+                chuoiTraVe+=chuoi.charAt(i);
+            }
+        }
+        return chuoiTraVe;
+    }
+
+</script>
+
+</body>
+</html>

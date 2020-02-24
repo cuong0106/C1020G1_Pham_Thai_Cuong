@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>câu 2</title>
+</head>
+<body>
+<script>
+    let soNhapVao=[];
+    let check=/^[\d]{4}$/;
+    let soLuongSoNguyen;
+    do {
+
+        soLuongSoNguyen=prompt("nhập vào số lượng số cần nhập là số nguyên dương >0:");
+    }
+    while (!(soLuongSoNguyen>0));
+    for(let i=0;i<soLuongSoNguyen;i++) {
+        do {
+            soNhapVao[i] = prompt("nhập vào số thứ "+(i+1)+ " có 4 chử số:");
+        }
+        while (!check.test(soNhapVao[i]))
+    }
+    for(let i=0;i<soLuongSoNguyen;i++) {
+        alert("số nguyên "+soNhapVao[i]+" là "+ isNumber(soNhapVao[i]));
+    }
+
+    function isNumber(soCanKiemTra) {
+        //soCanKiemTra=parseInt(soCanKiemTra);
+        if(1*soCanKiemTra.charAt(0)+1*soCanKiemTra.charAt(1)===1*soCanKiemTra.charAt(2)-1*soCanKiemTra.charAt(3)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+</script>
+</body>
+</html>

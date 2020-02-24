@@ -5,21 +5,33 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-​
+
 <body>
-<h3>Game caro phiên bản lỗi 2</h3>
+<h3 id="thongbao">Game caro: Tỷ Số 0:0</h3>
+<input type="button" value="New Game" onclick="gameNew();">
 <p id="caro"></p>
 <script>
     var b = document.getElementById("caro");
-    var c=0;
+    var nguoiChoi1=0;
+    var nguoiChoi2=0;
+    var dangChoi=true;
+    //var c=0;
     let mang = [];
     let data = "";
     let checkNguoiChoi = true;
-    for (i = 0; i < 20; i++) {
-        mang[i] = new Array("");
-        for(j=0;j<20;j++) {
-            mang[i][j] = "";
-    }}
+    let checkStrX = /((XXXXX )|( XXXXX)|(^XXXXX$))/g;
+    let checkStrO = /((OOOOO )|( OOOOO)|(^OOOOO$))/g;
+    mangNew();
+    displayCaro();
+
+    function mangNew() {
+        for (i = 0; i < 20; i++) {
+            mang[i] = new Array("");
+            for(j=0;j<20;j++) {
+                mang[i][j] = "";
+            }}
+    }
+
     function displayCaro() {
         let x;
         data = "<table border=1>";
@@ -39,97 +51,107 @@
         }
         b.innerHTML = data;
     }
+
     function changeValue(x, y) {
-        if (checkNguoiChoi && checkDaNhap(x,y)) {
-            mang[x][y] = "X";
-            checkNguoiChoi = false;
-            if(checkWin1()) {
-                alert("người chơi 1 đã chiến thắng");
+        if(dangChoi) {
+            if (mang[x][y] == "") {
+                if (checkNguoiChoi) {
+                    mang[x][y] = "X";
+                    displayCaro();
+                    checkNguoiChoi = false;
+                    if (checkWin(x, y, checkStrX)) {
+                        nguoiChoi1 += 1;
+                        document.getElementById("thongbao").innerHTML = "Game Caro: Tỷ Số "+nguoiChoi1+":"+nguoiChoi2+"Người Chơi 1 Đã Chiến Thắng";
+                        dangChoi=false;
+                    }
+                } else {
+                    mang[x][y] = "O";
+                    displayCaro();
+                    checkNguoiChoi = true;
+                    if (checkWin(x, y, checkStrO)) {
+                        nguoiChoi2 += 1;
+                        document.getElementById("thongbao").innerHTML = "Game Caro: Tỷ Số "+nguoiChoi1+":"+nguoiChoi2+"Người Chơi 2 Đã Chiến Thắng";
+                        dangChoi=false;
+                    }
+                }
             }
-        } else if(!checkNguoiChoi && checkDaNhap(x,y)){
-            mang[x][y] = "O";
-            checkNguoiChoi = true;
-            if(checkWin2()) {
-                alert("người chơi 2 đã chiến thắng");
-            }
-
         }
+    }
+
+    function gameNew(){
+        document.getElementById("thongbao").innerHTML="Game Caro: Tỷ Số "+nguoiChoi1+":"+nguoiChoi2;
+        mangNew();
         displayCaro();
+        dangChoi=true;
     }
-    function checkDaNhap(x,y) {
-        if(mang[x][y]==="O"||mang[x][y]==="X") {
-            alert("Ô bạn chọn đã được chọn trước. Vui lòng chọn ô khác.");
-            return false;
-        } else
-        return true;
-    }
-    function checkWin1() { let kq=false;
-        let i;
-        for (i = 0; i < mang.length; i++){
-            let j;
-            for ( j = 0; j < mang[i].length; j++) {
-                if(mang[i][j]==="X") {
 
-                    if(mang[i][j+1]==="X"&&mang[i][j+2]==="X" &&mang[i][j+3]==="X"&&mang[i][j+4]==="X"&&(mang[i][j+5]!=="O"|| mang[i][j-1]!=="O")){
-                        kq= true;
-                    }
-                    if(i>0){
-                    if(mang[i+1][j]==="X"&&mang[i+2][j]==="X"&&mang[i+3][j]==="X"&&mang[i+4][j]==="X"&&(mang[i+5][j]!=="O"||mang[i-1][j]!=="O")){
-                        kq= true;
-                    }}else
-                    if(mang[i+1][j]==="X"&&mang[i+2][j]==="X"&&mang[i+3][j]==="X"&&mang[i+4][j]==="X"){
-                        kq= true;
-                    }
-
-                    if(mang[i+1][j+1]==="X"&&mang[i+2][j+2]==="X"&&mang[i+3][j+3]==="X"&&mang[i+4][j+4]==="X"&&(mang[i-1][j-1]!=="O"||mang[i+5][j+5]!=="O")){
-                        kq= true;
-                    }
-                    if(i>4){
-                    if(mang[i-1][j+1]==="X"&&mang[i-2][j+2]==="X"&&mang[i-3][j+3]==="X"&&mang[i-4][j+4]==="X"&&(mang[i+1][j-1]!=="O"||mang[i-5][j+5]!=="O")){
-                        kq= true;
-                    }} else
-                    if(i===4)
-                    if(mang[i-1][j+1]==="X"&&mang[i-2][j+2]==="X"&&mang[i-3][j+3]==="X"&&mang[i-4][j+4]==="X"){
-                        kq= true;
-                    }
+    function checkWin(x,y,checkStr) {
+        for (let case1=1; case1<=4; case1++) {
+            let strCheckCaro1 = [" "];
+            for (let i = -5; i <= 5; i++) {
+                var indexX=c1(case1, i, x,y,"x");
+                var indexY=c1(case1, i,x, y,"y");
+                if ((indexX >= 0) && (indexY >= 0)) {
+                    if(mang[indexX][indexY]=="")
+                        strCheckCaro1.push(" ");
+                    else
+                        strCheckCaro1.push(mang[indexX][indexY]);
                 }
             }
+            strCheckCaro1.push(" ");
+            strCheckCaro1 = strCheckCaro1.toString().replace(/,/g, "");
+            console.log(strCheckCaro1);
+            if (checkStr.test(strCheckCaro1)) return true;
         }
-        return kq;      }
-    function checkWin2() {let kq=false;
-        let i;
-        for (i = 0; i < mang.length; i++){
-            let j;
-            for ( j = 0; j < mang[i].length; j++) {
-                if(mang[i][j]==="O") {
-                    if(mang[i][j+1]==="O"&&mang[i][j+2]==="O" &&mang[i][j+3]==="O"&&mang[i][j+4]==="O"&&(mang[i][j+5]!=="X"|| mang[i][j-1]!=="X")){
-                        kq= true;
-                    }
-                    if(i>0){
-                        if(mang[i+1][j]==="O"&&mang[i+2][j]==="O"&&mang[i+3][j]==="O"&&mang[i+4][j]==="O"&&(mang[i+5][j]!=="X"||mang[i-1][j]!=="X")){
-                            kq= true;
-                        }}else
-                    if(mang[i+1][j]==="O"&&mang[i+2][j]==="O"&&mang[i+3][j]==="O"&&mang[i+4][j]==="O"){
-                        kq= true;
-                    }
+        return false;
+    }
 
-                    if(mang[i+1][j+1]==="O"&&mang[i+2][j+2]==="O"&&mang[i+3][j+3]==="O"&&mang[i+4][j+4]==="O"&&(mang[i-1][j-1]!=="X"||mang[i+5][j+5]!=="X")){
-                        kq= true;
-                    }
-                    if(i>4){
-                        if(mang[i-1][j+1]==="O"&&mang[i-2][j+2]==="O"&&mang[i-3][j+3]==="O"&&mang[i-4][j+4]==="O"&&(mang[i+1][j-1]!=="X"||mang[i-5][j+5]!=="X")){
-                            kq= true;
-                        }} else
-                    if(i===4)
-                        if(mang[i-1][j+1]==="O"&&mang[i-2][j+2]==="O"&&mang[i-3][j+3]==="O"&&mang[i-4][j+4]==="O"){
-                            kq= true;
-                        }
-                }
+    function c1(case1,i,x,y,xOrY) {
+        if(xOrY=="x") {
+            if (case1 == 1) {
+                return x + i;
+            }
+            if (case1 == 2) {
+                return x;
+            }
+            if (case1 == 3) {
+                return x + i;
+            }
+            if (case1 == 4) {
+                return x - i;
             }
         }
-        return kq;
+        if(xOrY=="y"){
+            if(case1==1){
+                return y;
+            }
+            if(case1==2){
+                return y+i;
+            }
+            if(case1==3){
+                return y+i;
+            }
+            if(case1==4){
+                return y+i;
+            }
+        }
     }
-    displayCaro();
+
+
+    // function changeValue2(x, y) {
+    //     if(mang[x][y]==""){
+    //         if(checkNguoiChoi)
+    //             danhCaro("X",x,y,checkStrX);
+    //         else danhCaro("O",x,y,checkStrO);
+    //     }
+    // }
+    // function danhCaro(xo,x,y,checkStr) {
+    //     mang[x][y] = xo;
+    //     displayCaro();
+    //     checkNguoiChoi=!checkNguoiChoi;
+    //     if(checkWin(x,y,checkStr))
+    //     alert("người chơi "+xo+" đã chiến thắng");
+    // }
 </script>
 </body>
 ​

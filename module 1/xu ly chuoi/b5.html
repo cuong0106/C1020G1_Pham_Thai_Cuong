@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str;
+    var number;
+    var strChiaHet;
+    var strTam;
+    var chieuDaiChuoi;
+    str=prompt("nhập vào dãy số:");
+    strTam=str;
+    strChiaHet=laySoChiaHetCho4();
+    chieuDaiChuoi=strChiaHet.length;
+    alert("Chuổi truyền vào là:"+str+
+        "\nChuổi lớn nhất chia hết cho 4 là:"+strChiaHet+
+        "\nchiều dài chuổi chia hết cho 4 là:"+strChiaHet.length+
+        "\nvị trí bắt đầu của chuổi là: 0 \n vị trí kết thúc của chuổi là:"+(strChiaHet.length-1)
+    );
+    function laySoChiaHetCho4() {
+        for(i=str.length-1;i>=0;i--){
+            number=strTam*1;
+            if(number%4==0)
+                return strTam;
+            strTam=str.substring(0,i)
+
+        }
+    }
+</script>
+
+</body>
+</html>

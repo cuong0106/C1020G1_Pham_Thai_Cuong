@@ -166,7 +166,12 @@
     let listCustomers=[];
     let listEmployee=[];
     var beginMenu=true;
+    let checkPromptNumber=/^[\d]+$/;
+    let checkPromptEmail=/^[0-9a-zA-Z]+@[0-9a-zA-Z]+\.[0-9a-zA-Z]+$/;
+    let checkPromptIdCard=/^[0-9]{9}$/;
+    let checkPromptBirthDay=/^(([0][1-9])|([1-2][\d])|(3[0-1]))\/(([0][1-9])|([1][1-2]))\/(([1][9][\d]{2})|([2][0][01][\d]))$/;
     displayMainMenu();
+
     //********************************************menu chính
     function displayMainMenu() {
         while (beginMenu) {
@@ -196,23 +201,24 @@
                 displayMainMenu();
         }
     }
-
+    // thêm vào 1 khách hàng
     function addNewCustomer () {
         let customer=new OopCustomer();
+
         customer.setFullName(prompt("điền vào Tên:"));
-        customer.setIdCard(addIdCard());
-        customer.setBirthDay(addBirthDay());
-        customer.setEmail(addEmail());
+        customer.setIdCard(checkPrompt(checkPromptIdCard,"CMND"));
+        customer.setBirthDay(checkPrompt(checkPromptBirthDay,"Ngày Tháng Năm Sinh"));
+        customer.setEmail(checkPrompt(checkPromptEmail,"Email"));
         customer.setAddress(prompt("điền vào Địa Chỉ:"));
         customer.setTypeCustomer(prompt("điền vào Loại Customer:"));
-        customer.setDiscount(prompt("điền vào Giảm Giá:"));
-        customer.setNumber(prompt("điền vào Số Lượng Đi Kèm:"));
-        customer.setRentDays(prompt("điền vào Số Ngày thuê:"));
+        customer.setDiscount(checkPrompt(checkPromptNumber,"giảm giá"));
+        customer.setNumber(checkPrompt(checkPromptNumber,"Số Lượng Đi Kèm"));
+        customer.setRentDays(checkPrompt(checkPromptNumber,"Số Ngày thuê"));
         customer.setServiceRoom(prompt("điền vào Loại Dịch Vụ:"));
         customer.setRentRoom(prompt("điền vào Loại Phòng Thuê:"));
         return customer;
     }
-
+    // hiển thị danh sách khách hàng
     function displayCustomers() {
         let customers1;
         customers1 = prompt("Chọn khách hàng cần hiển thị thông tin: \n"+
@@ -225,7 +231,7 @@
             displayMainMenu();
         }
     }
-
+    // hiển thị thông tin của 1 khách hàng
     function displayInfomationCustomer (customer) {
         alert("\n1. Tên: " +customer.getFullName()+
             "\n2. CMND: "+customer.getIdCard()+
@@ -240,7 +246,7 @@
             "\n11. Loại Phòng Thuê: "+customer.getRentRoom());
 
     }
-
+    // hàm hiển thị tên, cmnd của 1 khách hàng
     function chuoiHienThiTenCMND(arr) {
         let chuoiHienThi = "";
         for (let i = 0; i < arr.length; i++) {
@@ -248,7 +254,7 @@
         }
         return chuoiHienThi;
     }
-
+    // chọn khách hàng cần tính tiền và tính tổng tiền cho khách hàng đó.
     function displayTotalPayOfCustomers(){
         let customers1;
         customers1 = prompt("Chọn khách hàng cần tính tổng tiền:\n"+
@@ -261,7 +267,7 @@
             displayMainMenu();
         }
     }
-
+    // chọn khách hàng cần chỉnh sửa thông tin
     function editCustomer() {
         let customers1;
         customers1 = prompt("Chọn khách hàng chỉnh sửa thông tin :\n"+
@@ -274,7 +280,7 @@
             displayMainMenu();
         }
     }
-
+    // chọn mục cần chỉnh sửa thông tin của khách hàng và chỉnh sửa thông tin đó.
     function edit(customer) {
         let ediwhile=1;
         while(ediwhile) {
@@ -296,15 +302,15 @@
                     ip = "";
                     break;
                 case "2":
-                    customer.setIdCard(prompt("điền vào CMND:"));
+                    customer.setIdCard(checkPrompt(checkPromptIdCard,"CMND"));
                     ip = "";
                     break;
                 case "3":
-                    customer.setBirthDay(prompt("điền vào Ngày Tháng Năm Sinh:"));
+                    customer.setBirthDay(checkPrompt(checkPromptBirthDay,"Ngày Tháng Năm Sinh"));
                     ip = "";
                     break;
                 case "4":
-                    customer.setEmail(prompt("điền vào Email:"));
+                    customer.setEmail(checkPrompt(checkPromptEmail,"Email"));
                     ip = "";
                     break;
                 case "5":
@@ -316,15 +322,15 @@
                     ip = "";
                     break;
                 case "7":
-                    customer.setDiscount(prompt("điền vào Giảm Giá:"));
+                    customer.setDiscount(checkPrompt(checkPromptNumber,"giảm giá"));
                     ip = "";
                     break;
                 case "8":
-                    customer.setNumber(prompt("điền vào Số Lượng Đi Kèm:"));
+                    customer.setNumber(checkPrompt(checkPromptNumber,"Số Lượng Đi Kèm"));
                     ip = "";
                     break;
                 case "9":
-                    customer.setRentDays(prompt("điền vào Số Ngày thuê:"));
+                    customer.setRentDays(checkPrompt(checkPromptNumber,"Số Ngày thuê"));
                     ip = "";
                     break;
                 case "10":
@@ -356,7 +362,7 @@
             }
         }
     }
-
+    // chọn và xóa bỏ đi 1 khách hàng trong danh sách khách hàng
     function deleteCustomer() {
         let customers1;
         let confirmDelete;
@@ -372,33 +378,17 @@
             displayMainMenu();
         }
     }
-    function addIdCard(){
-        let itemIdCard;
-        let checkIdCard=/^[0-9]{9}$/;
+    // hàm kiểm tra dữ liệu nhập vào từ máy tính
+    function checkPrompt(check,text) {
+        let data;
         do{
-        itemIdCard=prompt("điền vào CMND:")}
-    while(!checkIdCard.test(itemIdCard));
-        return itemIdCard;
+            data=prompt("điền vào "+text+" :")
+        }
+        while (!(check.test(data)));
+        return data;
     }
-    function addEmail(){
-        let itemEmail;
-        let checkEmail=/^[0-9a-zA-Z]+@[0-9a-zA-Z]+\.[0-9a-zA-Z]+$/;
-        do{
-            itemEmail=prompt("điền vào Email:")}
-        while(!checkEmail.test(itemEmail));
-        return itemEmail;
-    }
-    function addBirthDay(){
-        let itemBirthDay;
-        let checkBirthDay=/^[0-2][0-9]|3[0-1]\/([0][0-9])|([1][1-2])\/[0-9]{4}$/;
-        do{itemBirthDay=prompt("điền vào Birthday:")}
-        while(!checkBirthDay.test(itemBirthDay));
-        return itemBirthDay;
-    }
-
-
     // yc6 t2
-
+    // tạo 1 đối tượng employee
     function Employee (){
         // this.fullName =null;
         // this.birthDay=null;
@@ -583,32 +573,26 @@
             }
         }
     }
-
-
+    // thêm 1 employee vào danh sách employee
     function addNewEmployee () {
         let employee=new Employee();
         employee.setFullName(prompt("điền vào Tên:"));
-        employee.setBirthDay(prompt("điền vào Ngày Tháng Năm Sinh:"));
-        employee.setIdCard(prompt("điền vào CMND:"));
+        employee.setBirthDay(checkPrompt(checkPromptBirthDay,"Ngày Tháng Năm Sinh"));
+        employee.setIdCard(checkPrompt(checkPromptIdCard,"CMND"));
         employee.setPhoneNumber(prompt("điền vào số điện thoại:"));
-        employee.setEmail(prompt("điền vào Email:"));
+        employee.setEmail(checkPrompt(checkPromptEmail,"Email"));
         employee.setLevel(prompt("điền vào trình độ:"));
         employee.setWorkingPosition(prompt("điền vào chức vụ làm việc:"));
         employee.setSalary(prompt("điền vào lương:"));
         employee.setAddress(prompt("điền vào Địa Chỉ:"));
         employee.setTypeCustomer(prompt("điền vào Loại Customer:"));
-        employee.setDiscount(prompt("điền vào Giảm Giá:"));
-        employee.setNumber(prompt("điền vào Số Lượng Đi Kèm:"));
-        employee.setRentDays(prompt("điền vào Số Ngày thuê:"));
+        employee.setDiscount(checkPrompt(checkPromptNumber,"giảm giá"));
+        employee.setNumber(checkPrompt(checkPromptNumber,"Số Lượng Đi Kèm"));
+        employee.setRentDays(checkPrompt(checkPromptNumber,"Số Ngày thuê"));
         employee.setServiceRoom(prompt("điền vào Loại Dịch Vụ:"));
         employee.setRentRoom(prompt("điền vào Loại Phòng Thuê:"));
         return employee;
     }
-
-
-
-
-
 
     /*
 

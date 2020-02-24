@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>câu 4</title>
+</head>
+<body>
+
+<script>
+     var Employee = function () {
+        this.setTenDangNhap= function (tenDangNhap) {
+            this.tenDangNhap=tenDangNhap;
+        };
+        this.setTenNhanVien=function (tenNhanVien) {
+            this.tenNhanVien=tenNhanVien;
+        };
+        this.setMatKhau=function (matKhau) {
+            this.matKhau=matKhau;
+        };
+        this.setNgaySinh = function (ngaySinh) {
+            this.ngaySinh=ngaySinh;
+        };
+        this.setSoChungMinhNhanDan=function (soChungMinhNhanDan) {
+            this.soChungMinhNhanDan=soChungMinhNhanDan;
+        };
+        this.setGioiTinh=function (gioiTinh) {
+            this.gioiTinh=gioiTinh;
+        };
+        this.setDiaChi=function (diaChi) {
+            this.diaChi=diaChi;
+        };
+        this.setSoDienThoai=function (soDienThoai) {
+            this.soDienThoai=soDienThoai;
+        };
+        this.setEmail = function (email) {
+            this.email=email;
+        };
+        //get
+
+        this.getTenDangNhap=function () {
+            return  this.tenDangNhap;
+        };
+        this.getTenNhanVien=function () {
+            return this.tenNhanVien;
+        };
+        this.getMatKhau=function () {
+            return this.matKhau;
+        };
+        this.getNgaySinh = function () {
+            return this.ngaySinh;
+        };
+        this.getSoChungMinhNhanDan=function () {
+            return this.soChungMinhNhanDan;
+        };
+        this.getGioiTinh=function () {
+            return this.gioiTinh;
+        };
+        this.getDiaChi=function () {
+            return this.diaChi;
+        };
+        this.getSoDienThoai=function () {
+            return this.soDienThoai;
+        };
+        this.getEmail=function () {
+            return this.email;
+        }
+    };
+    //////main
+    let employee=[];
+    let menu;
+    let tenDangNhap;
+    let matKhau;
+    let checkPromptEmail=/^[0-9a-zA-Z]+@[0-9a-zA-Z]+\.[0-9a-zA-Z]+$/;
+    hienThiMenu();
+
+    function hienThiMenu() {
+        menu=prompt("1. Login \n 2. Regisxer \n 3. Exit"
+        );
+        if(menu==2){
+            nhapVaoThongTinNguoiDung();
+        }
+        if(menu==1){
+            dangNhap();
+        }
+
+        if(menu==3){
+            if(!confirm("thoát khỏi menu điều khiển"))
+                hienThiMenu();
+        }
+    }
+
+    function dangNhap() {
+        let j=0;
+        if(employee.length>=1) {
+            tenDangNhap = prompt("Vui lòng nhập username: ");
+            matKhau = prompt("Vui lòng nhập password: ");
+            while (tenDangNhap != employee[j].getTenDangNhap() || matKhau != employee[j].getMatKhau()) {
+                while ((tenDangNhap != employee[j].getTenDangNhap())) {
+                    alert("bạn đã nhập sai username");
+                    tenDangNhap = prompt("Vui lòng nhập username: ");
+                }
+                while ((matKhau != employee[j].getMatKhau())) {
+                    alert("bạn đã nhập sai password");
+                    matKhau = prompt("Vui lòng nhập password: ");
+                }
+            }
+            alert("đã đăng nhập thành công");
+            hienThiMenu();
+        } else {
+            alert("chưa có tài khoản nào:");
+            hienThiMenu();
+        }
+    }
+
+    function nhapVaoThongTinNguoiDung() {
+        employee.push(new Employee());
+        employee[employee.length-1].setTenDangNhap(prompt("Điền vào tên đăng nhập: "));
+        employee[employee.length-1].setTenNhanVien(prompt("Điền vào tên nhân viên: "));
+        employee[employee.length-1].setMatKhau(prompt("Điền vào mật khẩu: "));
+        employee[employee.length-1].setNgaySinh(prompt("Điền vào ngày sinh: "));
+        employee[employee.length-1].setSoChungMinhNhanDan(prompt("Điền vào số CMND: "));
+        employee[employee.length-1].setGioiTinh(prompt("Điền vào giới tính: "));
+        employee[employee.length-1].setDiaChi(prompt("Điền vào địa chỉ: "));
+        employee[employee.length-1].setSoDienThoai(prompt("Điền vào số điện thoại: "));
+        employee[employee.length-1].setEmail(nhapVaoVaKiemTra(checkPromptEmail,"Email"));
+        hienThiMenu();
+    }
+
+    function nhapVaoVaKiemTra(check,text) {
+        let data;
+        do{
+            data=prompt("điền vào "+text+" :")
+        }
+        while (!(check.test(data)));
+        return data;
+    }
+
+
+</script>
+
+</body>
+</html>

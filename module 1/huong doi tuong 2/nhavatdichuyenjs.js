@@ -104,6 +104,6 @@ function set5(){
     }else{
         huongDiChuyen='len';
     }
-    tRandom=setTimeout(set5, Math.random()*4000);
+    tRandom=setTimeout(set5, Math.random()*document.getElementById('timer').value);
 }
 start();

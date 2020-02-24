@@ -8,7 +8,10 @@
 
 <input type="button" onclick="dienthoainokia();" value="điện thoại nokia">
 <script>
-
+    let tong=100;
+    for(let i=0;i<52;i++)
+        tong=tong*1.01;
+    alert(tong);
     let oopMobile = function() {
         this.battery = 100;
         this.messageIsWriting =new Array();

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sắp xếp sau đó đếm số lần xuất hiện</title>
+</head>
+<body>
+<script>
+    function count(arr, data) {
+        var count = 0;
+        var position =  arr.indexOf(data);
+        if (position > -1) {
+            ++count;
+            for (let i = position+1; i < arr.length; i++) {
+                if (arr[i] == data) {
+                    ++count;
+                }
+                else {
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
+    function sort(nums) {
+        let item;
+        for(let i=0;i<nums.length-1;i++){
+            for(let j=0;j<nums.length-1;j++){
+                if(nums[j]>nums[j+1]){
+                    item=nums[j];
+                    nums[j]=nums[j+1];
+                    nums[j+1]=item;
+                }
+            }
+        }
+    }
+
+    function shows() {
+        for(let i=0; i<nums.length;i++){
+            if(i%10===0)
+                document.write("<br>");
+            document.write(nums[i]);
+            document.write("  ");
+        }
+    }
+    /////////////////////////////
+    var nums = [];
+    for(var i=0;i<100;++i)
+        nums[i] = Math.floor(Math.random()*101);
+
+    sort(nums);
+    shows(nums);
+     var val = parseInt(prompt("Enter a value to count: "));
+
+     var retVal = count(nums, val);
+
+     document.write("<br>");
+     document.write("Found " + retVal + " occurrences of " + val + ".");
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

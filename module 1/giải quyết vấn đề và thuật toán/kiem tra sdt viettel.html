@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra số điện thoại viettel</title>
+</head>
+<body>
+<script>
+
+    function checkPhoneNubmberViettel(nums) {
+
+        let numsViettel=[];
+        for(let i=0;i<nums.length;i++){
+            if(/^((09[678])|(03[23456789])|086)+$/.test(nums[i])){
+                numsViettel.push(nums[i]);
+            }
+        }
+        return numsViettel;
+    }
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
