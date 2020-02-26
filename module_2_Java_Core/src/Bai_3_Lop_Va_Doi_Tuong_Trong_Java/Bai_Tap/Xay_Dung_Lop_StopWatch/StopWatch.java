@@ -40,7 +40,7 @@ public class StopWatch {
         int[] mang=new int[chieu1];
         for(int i=0;i<chieu1;i++){
             Random random = new Random();
-            mang[i]= random.nextInt(10);
+            mang[i]= random.nextInt(100000);
         }
         return mang;
     }
